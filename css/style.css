@@ -1,0 +1,10 @@
+#user_options{
+	right:10px;
+}
+#grid_cuerpo{
+	margin-top:0px;
+	border:solid 1px black;
+}
+.mensaje.modal{
+	padding:1%;
+}
