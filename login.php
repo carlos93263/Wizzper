@@ -44,10 +44,12 @@
                                 <i class="lock icon"></i>
                             </div>
                         </div>
-                        <button class="ui orange button" type="button" onclick="location='registro.php'">Registro</button>
-                        <button class="ui orange button" type="submit">Login</button>
                         <div class="ui error message"></div>
-                    </form>
+                        <button class="ui orange button" type="submit">Login</button>
+                        
+                        <p>¿No dispones de una cuenta?<a href="registro.php"> Registrate! </a></p>
+<!--                         <button class="ui orange button" type="button" onclick="location='registro.php'">Registro</button>
+ -->                    </form>
                 </div>
                 <div class="column">
                     FILA DERECHA, PARA PONER INFORMACION DE LA PAGINA BONITA.
