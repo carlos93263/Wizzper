@@ -1,3 +1,7 @@
+<?php
+	//Recojemos id de cookies & session
+	include ("validacio.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -38,7 +42,7 @@
                     Temas Públicos
                 </a>
                 <div class="ui simple right floated dropdown item" id="user_options">
-                    <img class="ui avatar image" src="media/img/users_avatar.png"> Usuario <i class="dropdown icon"></i>
+                    <img class="ui avatar image" src="media/img/users_avatar.png"><?php echo $_COOKIE["wizzpercookielogin"]; ?><i class="dropdown icon"></i>
                     <div class="menu">
                         <a class="item" href="#">Psicólogos</a>
                         <a class="item">Ayudas Sociales</a>
