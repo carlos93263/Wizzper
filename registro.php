@@ -37,16 +37,16 @@
                                 </div>
                             </div>
                             <div class="inline center aligned fields">
-                                <label for="fruit">Tu sexo:</label>
+                                <label for="gender">Tu sexo:</label>
                                 <div class="field">
                                   <div class="ui radio checkbox">
-                                    <input type="radio" name="fruit" checked="" tabindex="0" class="hidden">
+                                    <input type="radio" name="gender" value="hombre" checked="" tabindex="0" class="hidden">
                                     <label>Hombre</label>
                                   </div>
                                 </div>
                                 <div class="field">
                                   <div class="ui radio checkbox">
-                                    <input type="radio" name="fruit" tabindex="0" class="hidden">
+                                    <input type="radio" name="gender" value="mujer" tabindex="0" class="hidden">
                                     <label>Mujer</label>
                                   </div>
                                 </div>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="field">
                                 <div class="ui left icon input">
-                                    <input type="date" name="fechaini" max='<?php echo $nuevafecha;?>' value='<?php echo $nuevafecha;?>' required>
+                                    <input type="date" name="dateofbirth" max='<?php echo $nuevafecha;?>' value='<?php echo $nuevafecha;?>' required>
                                     <i class="calendar icon"></i>
                                 </div>
                             </div>
@@ -91,10 +91,8 @@
                             </div>
                         </div>
                         <div class="ui error message"></div>
-                        
                         <button class="ui orange button" type="button" onclick="location='login.php'">Atrás</button>
                         <button class="ui orange button" type="submit">Registrarse</button>
-                        
                     </form>
                 </div>
             </div>
