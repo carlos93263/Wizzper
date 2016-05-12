@@ -1,10 +1,21 @@
 <?php
 	//Recojemos id de cookies & session
 	include ("validacio.php");
-
+	include ("conexion.php");
     $fecha = date('Y-m-j');
     $nuevafecha = strtotime ( '-18 year' , strtotime ( $fecha ) ) ;
     $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
+    $sql = "SELECT * FROM tbl_user WHERE user_id='$_SESSION[wizzperid]'";
+    $datos = mysqli_query($con, $sql);
+    while($send = mysqli_fetch_array($datos)){
+		$nickname=utf8_encode($send['user_nickname']);
+		$email=utf8_encode($send['user_email']);
+		$nombre=utf8_encode($send['user_name']);
+		$apellidos=utf8_encode($send['user_surname']);
+		$birth=$send['user_dateofbirth'];
+		$respuestas=$send['user_response'];
+		$notificaciones=$send['user_notification'];
+	}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -76,13 +87,13 @@
 							<div class="ui orange segment">
 								<div class="field">
 									<label>Nickname</label>
-									<input type="text" name="mod_nickname" value="Prueba">
+									<input type="text" name="mod_nickname" value="<?php echo $nickname; ?>">
 								</div>
 							</div>
 							<div class="ui orange segment">
 								<div class="field">
 									<label>Email</label>
-									<input type="email" name="mod_email" value="email@gmail.com">
+									<input type="email" name="mod_email" value="<?php echo $email; ?>">
 								</div>
 							</div>
 						</div>
@@ -102,17 +113,17 @@
 									<label>Name</label>
 									<div class="two fields">
 										<div class="field">
-											<input type="text" name="mod_nombre" value="Nombre">
+											<input type="text" name="mod_nombre" value="<?php echo $nombre; ?>">
 										</div>
 										<div class="field">
-											<input type="text" name="mod_apellidos" value="Apellidos">
+											<input type="text" name="mod_apellidos" value="<?php echo $apellidos; ?>">
 										</div>
 									</div>
 								</div>
 								<div class="field">
 									<label>Fecha de nacimiento</label>
 	                                <div class="ui left icon input">
-	                                    <input type="date" name="dateofbirth" max='<?php echo $nuevafecha;?>' value='<?php echo $nuevafecha;?>'>
+	                                    <input type="date" name="dateofbirth" max='<?php echo $nuevafecha;?>' value='<?php echo $birth;?>'>
 	                                    <i class="calendar icon"></i>
 	                                </div>
                             	</div>
@@ -120,17 +131,37 @@
 						</div>
 						<div class="ui horizontal segments">
 							<div class="ui left aligned orange segment">
-								<!-- <div class="ui left aligned segment"> -->
-									<div class="ui toggle checkbox">
+								<div class="ui toggle checkbox">
+								<?php
+									if($respuestas!=0){
+								?>
+										<input type="checkbox" name="public" checked>
+										<label>Recibir mensajes de otros usuarios.</label>
+								<?php
+									}else{
+								?>
 										<input type="checkbox" name="public">
 										<label>Recibir mensajes de otros usuarios.</label>
-									</div>
-									<p></p>
-									<div class="ui toggle checkbox">
+								<?php
+									}
+								?>
+								</div>
+								<p></p>
+								<div class="ui toggle checkbox">
+								<?php
+									if($respuestas!=0){
+								?>
+										<input type="checkbox" name="public" checked>
+										<label>Recibir notificaciones en mi email cuando reciba una respuesta.</label>
+								<?php
+									}else{
+								?>
 										<input type="checkbox" name="public">
 										<label>Recibir notificaciones en mi email cuando reciba una respuesta.</label>
-									</div>
-<!-- 								</div> -->
+								<?php
+									}
+								?>
+								</div>
 							</div>
 						</div>
         			</form>
