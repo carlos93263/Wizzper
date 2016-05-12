@@ -25,7 +25,7 @@
 		<header>
             <nav class="ui stackable menu">
                 <span class="item"><img class="ui mini image" src="media/logo/loguito.png"></span>
-                <a class="item">
+                <a class="item" href="index.php">
                     Home
                 </a>
                 <a class="item">
@@ -38,11 +38,15 @@
                         <a class="item">Ayudas Sociales</a>
                     </div>
                 </div>
-                <a class="item">
+                <a class="item" href="temasPublicos.php">
                     Temas Públicos
                 </a>
                 <div class="ui simple right floated dropdown item" id="user_options">
-                    <img class="ui avatar image" src="media/img/users_avatar.png"><?php echo $_COOKIE["wizzpercookielogin"]; ?><i class="dropdown icon"></i>
+                    <img class="ui avatar image" src="media/img/users_avatar.png">
+					<?php 
+						echo $_COOKIE["a"]; 
+					?>
+					<i class="dropdown icon"></i>
                     <div class="menu">
                         <a class="item" href="#">Psicólogos</a>
                         <a class="item">Ayudas Sociales</a>

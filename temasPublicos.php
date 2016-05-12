@@ -43,7 +43,9 @@
                 </a>
                 <div class="ui simple right floated dropdown item" id="user_options">
                     <img class="ui avatar image" src="media/img/users_avatar.png">
-						<?php echo $_COOKIE["wizzpercookielogin"]; ?>
+					<?php 
+						echo $_COOKIE["wizzpercookielogin"]; 
+					?>
 					<i class="dropdown icon"></i>
                     <div class="menu">
                         <a class="item" href="#">Psicólogos</a>
@@ -54,7 +56,6 @@
             </nav>
         </header>
         <!-- FIN DE MENU -->
-
 		<!-- INICIO CUERPO -->
     		<div class="ui vertically divided stackable grid" id="grid_cuerpo">
                 <div class="four column row">
@@ -73,7 +74,9 @@
 							</div>
 						</div>
 						<div class="ui bottom attached segment">
-							<p id="textaomplir"></p>
+							<?php
+							include ("generosTemasPublicos.php");
+							?>
 						</div>
                     </div>
                     <div class="four wide column">

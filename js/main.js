@@ -9,11 +9,18 @@ $(document).ready(function(){
 			}
 		});
 	}else if (document.getElementById("foro")){
-		$.ajax({
+		/*$.ajax({
 			type: "POST",
 			url: "./generosTemasPublicos.php",
 			success: function(a) {
 				$('#textaomplir').html(a);
+			}
+		});*/
+		$.ajax({
+			type: "POST",
+			url: "./mensajesRecibidos.php",
+			success: function(a) {
+				$('#texttema').html(a);
 			}
 		});
 	}
@@ -51,7 +58,7 @@ $(document).ready(function(){
 		.checkbox()
 	;
 	//MENU DEL INDEX
-		//CAMBIAR A LA PRIMERA PESATAÑA DEL MENU PRINCIPAL
+		//CAMBIAR A LA PRIMERA PESTAÑA DEL MENU PRINCIPAL
 		$('#mMenu1').click(function(){
 			document.getElementById("mMenu1").className="item active";
 			document.getElementById("mMenu2").className="item";
@@ -63,7 +70,7 @@ $(document).ready(function(){
 				}
 			});
 		});
-		//CAMBIAR A LA SEGUNDA PESATAÑA DEL MENU PRINCIPAL
+		//CAMBIAR A LA SEGUNDA PESTAÑA DEL MENU PRINCIPAL
 		$('#mMenu2').click(function(){
 			document.getElementById("mMenu1").className="item";
 			document.getElementById("mMenu2").className="item active";
@@ -173,39 +180,141 @@ $(document).ready(function(){
 			}
 		}
 	});	
-	//CAMBIAR A LA PESATAÑAS DEL MENU DEL FORO
-		$('#1').click(function(){
-			document.getElementById("1").className="item active";
-			document.getElementById("2").className="item";
-			document.getElementById("3").className="item";
-			document.getElementById("4").className="item";
-			document.getElementById("5").className="item";
-			document.getElementById("6").className="item";
-			document.getElementById("7").className="item";
-			document.getElementById("8").className="item";
-			$.ajax({
-				type: "POST",
-				url: "./mensajesRecibidos.php",
-				success: function(a) {
-					$('#textaomplir').html(a);
-				}
-			});
+	//CAMBIAR A LA PESTAÑAS DEL MENU DEL FORO
+	$('#Amistad').click(function(){
+		document.getElementById("Amistad").className="item active";
+		document.getElementById("Amor").className="item";
+		document.getElementById("Dinero").className="item";
+		document.getElementById("Estudios").className="item";
+		document.getElementById("Familia").className="item";
+		document.getElementById("Salud").className="item";
+		document.getElementById("Trabajo").className="item";
+		document.getElementById("Varios").className="item";
+		$.ajax({
+			type: "POST",
+			url: "./mensajesRecibidos.php",
+			success: function(a) {
+				$('#texttema').html(a);
+			}
 		});
-		$('#2').click(function(){
-			document.getElementById("1").className="item";
-			document.getElementById("2").className="item active";
-			document.getElementById("3").className="item";
-			document.getElementById("4").className="item";
-			document.getElementById("5").className="item";
-			document.getElementById("6").className="item";
-			document.getElementById("7").className="item";
-			document.getElementById("8").className="item";
-			$.ajax({
-				type: "POST",
-				url: "./mensajesRecibidos.php",
-				success: function(a) {
-					$('#textaomplir').html(a);
-				}
-			});
+	});
+	$('#Amor').click(function(){
+		document.getElementById("Amistad").className="item";
+		document.getElementById("Amor").className="item active";
+		document.getElementById("Dinero").className="item";
+		document.getElementById("Estudios").className="item";
+		document.getElementById("Familia").className="item";
+		document.getElementById("Salud").className="item";
+		document.getElementById("Trabajo").className="item";
+		document.getElementById("Varios").className="item";
+		$.ajax({
+			type: "POST",
+			url: "./mensajesRecibidos.php",
+			success: function(a) {
+				$('#texttema').html(a);
+			}
 		});
+	});
+	$('#Dinero').click(function(){
+		document.getElementById("Amistad").className="item";
+		document.getElementById("Amor").className="item";
+		document.getElementById("Dinero").className="item active";
+		document.getElementById("Estudios").className="item";
+		document.getElementById("Familia").className="item";
+		document.getElementById("Salud").className="item";
+		document.getElementById("Trabajo").className="item";
+		document.getElementById("Varios").className="item";
+		$.ajax({
+			type: "POST",
+			url: "./mensajesRecibidos.php",
+			success: function(a) {
+				$('#texttema').html(a);
+			}
+		});
+	});
+	$('#Estudios').click(function(){
+		document.getElementById("Amistad").className="item";
+		document.getElementById("Amor").className="item";
+		document.getElementById("Dinero").className="item";
+		document.getElementById("Estudios").className="item active";
+		document.getElementById("Familia").className="item";
+		document.getElementById("Salud").className="item";
+		document.getElementById("Trabajo").className="item";
+		document.getElementById("Varios").className="item";
+		$.ajax({
+			type: "POST",
+			url: "./mensajesRecibidos.php",
+			success: function(a) {
+				$('#texttema').html(a);
+			}
+		});
+	});
+	$('#Familia').click(function(){
+		document.getElementById("Amistad").className="item";
+		document.getElementById("Amor").className="item";
+		document.getElementById("Dinero").className="item";
+		document.getElementById("Estudios").className="item";
+		document.getElementById("Familia").className="item active";
+		document.getElementById("Salud").className="item";
+		document.getElementById("Trabajo").className="item";
+		document.getElementById("Varios").className="item";
+		$.ajax({
+			type: "POST",
+			url: "./mensajesRecibidos.php",
+			success: function(a) {
+				$('#texttema').html(a);
+			}
+		});
+	});
+	$('#Salud').click(function(){
+		document.getElementById("Amistad").className="item";
+		document.getElementById("Amor").className="item";
+		document.getElementById("Dinero").className="item";
+		document.getElementById("Estudios").className="item";
+		document.getElementById("Familia").className="item";
+		document.getElementById("Salud").className="item active";
+		document.getElementById("Trabajo").className="item";
+		document.getElementById("Varios").className="item";
+		$.ajax({
+			type: "POST",
+			url: "./mensajesRecibidos.php",
+			success: function(a) {
+				$('#texttema').html(a);
+			}
+		});
+	});
+	$('#Trabajo').click(function(){
+		document.getElementById("Amistad").className="item";
+		document.getElementById("Amor").className="item";
+		document.getElementById("Dinero").className="item";
+		document.getElementById("Estudios").className="item";
+		document.getElementById("Familia").className="item";
+		document.getElementById("Salud").className="item";
+		document.getElementById("Trabajo").className="item active";
+		document.getElementById("Varios").className="item";
+		$.ajax({
+			type: "POST",
+			url: "./mensajesRecibidos.php",
+			success: function(a) {
+				$('#texttema').html(a);
+			}
+		});
+	});
+	$('#Varios').click(function(){
+		document.getElementById("Amistad").className="item";
+		document.getElementById("Amor").className="item";
+		document.getElementById("Dinero").className="item";
+		document.getElementById("Estudios").className="item";
+		document.getElementById("Familia").className="item";
+		document.getElementById("Salud").className="item";
+		document.getElementById("Trabajo").className="item";
+		document.getElementById("Varios").className="item active";
+		$.ajax({
+			type: "POST",
+			url: "./mensajesRecibidos.php",
+			success: function(a) {
+				$('#texttema').html(a);
+			}
+		});
+	});
 });

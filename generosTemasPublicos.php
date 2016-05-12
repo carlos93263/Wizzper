@@ -12,18 +12,18 @@
 		while($send = mysqli_fetch_array($datos)){
 			//echo $send['cate_id'];
 			if($count == 0){
-				echo "<a id='$send[cate_id]' class='item active'>$send[cate_name]</a><br/> ";
+				echo "<a id='$send[cate_name]' class='item active'>$send[cate_name]</a><br/> ";
 				$count++;
 			}else{
-				echo "<a id='$send[cate_id]' class='item'>$send[cate_name]</a><br/> ";
+				echo "<a id='$send[cate_name]' class='item'>$send[cate_name]</a><br/> ";
 			}
 		}
 			echo "</div>
 			  </div>
 			  <div class='thirteen wide stretched column'>
 				<div class='ui segment'>
-					<p id='textaomplir'>
-						This is an stretched grid column. This segment will always match the tab height
+					<p id='texttema'>
+						
 					</p>
 				</div>
 			  </div>
