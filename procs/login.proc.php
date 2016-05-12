@@ -7,14 +7,16 @@
 		$password = md5($_POST['password']);
 		$email = $_POST['email'];
 		//Lanzamiento de la consulta
-		$sql = "SELECT user_email, user_id, user_password FROM tbl_user WHERE user_email='$email' AND user_password='$password'";
+		$sql = "SELECT user_email, user_id, user_password, user_nickname FROM tbl_user WHERE user_email='$email' AND user_password='$password'";
 		$datos = mysqli_query($con, $sql);
 		if(mysqli_num_rows($datos) > 0){
 			while($send = mysqli_fetch_array($datos)){
-				$_SESSION['mail']= $send['user_email'];
-				$_SESSION['id']= $send['user_id'];
-				$_SESSION['pass']= $send['user_password'];
-				header("Location: ../index.html");
+				$_SESSION['wizzpermail']= $send['user_email'];
+				$_SESSION['wizzperid']= $send['user_id'];
+				$_SESSION['wizzperpass']= $send['user_password'];
+				$user = $send['user_nickname'];
+				setcookie("wizzpercookielogin", $user, time()+60*60*24*30);//30 dies de vida de la cookie
+				header("Location: ../index.php");
 				die();
 			}
 		}else{

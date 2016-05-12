@@ -1,7 +1,4 @@
 <?php
-	session_start();
-	//Recojemos id de cookies & session
-
 	//Incluimos la conexion a BBDD
 	include ("conexion.php");
 	//Lanzamiento de la consulta

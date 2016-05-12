@@ -25,7 +25,7 @@
 		<header>
             <nav class="ui stackable menu">
                 <span class="item"><img class="ui mini image" src="media/logo/loguito.png"></span>
-                <a class="item">
+                <a class="item" href="index.php">
                     Home
                 </a>
                 <a class="item">
@@ -38,11 +38,13 @@
                         <a class="item">Ayudas Sociales</a>
                     </div>
                 </div>
-                <a class="item">
+                <a class="item" href="temasPublicos.php">
                     Temas Públicos
                 </a>
                 <div class="ui simple right floated dropdown item" id="user_options">
-                    <img class="ui avatar image" src="media/img/users_avatar.png"><?php echo $_COOKIE["wizzpercookielogin"]; ?><i class="dropdown icon"></i>
+                    <img class="ui avatar image" src="media/img/users_avatar.png">
+						<?php echo $_COOKIE["wizzpercookielogin"]; ?>
+					<i class="dropdown icon"></i>
                     <div class="menu">
                         <a class="item" href="#">Psicólogos</a>
                         <a class="item">Ayudas Sociales</a>
@@ -61,15 +63,12 @@
                     <div class="ten wide column">
                         <!-- AQUI VA EL CONTINGUT QUE TENS DE LES DUES PESTANYES I VENTANA MODAL ETC... -->   
 						<div class="ui top attached tabular menu">
-							<a id="mMenu1" class="item active">
-								Mensajes Recibidos
-							</a>
-							<a id="mMenu2" class="item">
-								Mensajes Enviados
+							<a id="foro" class="item active">
+								Temas Públicos
 							</a>
 							<div class="right menu">
 								<div class="item">
-									<div id="menNuevo" class="ui mensaje button"> Crear Mensaje nuevo</div><br/>
+									<div id="menNuevo" class="ui tema button"> Crear Tema nuevo</div><br/>
 								</div>
 							</div>
 						</div>
@@ -86,56 +85,20 @@
                 </div>
             </div>	
 		<!-- VENTANA MODAL-->
-		<div class="ui mensaje modal">
+		<div class="ui tema modal">
 			<i class="close icon"></i>
 			<div class="header">
-				Crear Mensaje Nuevo
+				Crear Tema Nuevo
 			</div>
 			<br/>
-			<form action="" class="ui mensaje form">
+			<form action="" class="ui tema form">
 				<div class="required field">
-					<label> Asunto del Mensaje</label>
+					<label> Titulo del Tema</label>
 					<input id="matter" type="text">
 				</div>
 				<div class="required field">
-					<label> Cuerpo del mensaje</label>
+					<label> Cuerpo del tema</label>
 					<textarea id="body"></textarea>
-				</div>
-				<div class="inline required fields">
-					<label for="fruit">A cuantas personas quieres enviar el mensaje:</label>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input type="radio" name="numPer" checked="" tabindex="0" class="hidden">
-							<label>1 Personas</label>
-						</div>
-					</div>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input type="radio" name="numPer" tabindex="0" class="hidden">
-							<label>5 Personas</label>
-						</div>
-					</div>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input type="radio" name="numPer" tabindex="0" class="hidden">
-							<label>10 Personas</label>
-						</div>
-					</div>
-				</div>
-				<div class="inline required fields">
-					<label for="opTip">Opinión :</label>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input type="radio" name="opTip" checked="" tabindex="0" class="hidden">
-							<label>Femenina</label>
-						</div>
-					</div>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input type="radio" name="opTip" tabindex="0" class="hidden">
-							<label>Masculina</label>
-						</div>
-					</div>
 				</div>
 				<div class="ui submit button">Enviar</div>
 			</form>
