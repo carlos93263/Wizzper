@@ -40,27 +40,27 @@
 		<header>
             <nav class="ui stackable menu">
                 <span class="item"><img class="ui mini image" src="media/logo/loguito.png"></span>
-                <a class="item">
+                <a class="item" href="index.php">
                     Home
                 </a>
-                <a class="item">
+                <a class="item" href="rankings.php">
                     Rankings
                 </a>
                 <div class="ui simple dropdown item">
                     Recomendaciones <i class="dropdown icon"></i>
                     <div class="menu">
-                        <a class="item">Psicólogos</a>
-                        <a class="item">Ayudas Sociales</a>
+                        <a class="item" href="psicologos.php">Psicólogos</a>
+                        <a class="item" href="ayudasSociales.php">Ayudas Sociales</a>
                     </div>
                 </div>
-                <a class="item">
+                <a class="item" href="temasPublicos.php">
                     Temas Públicos
                 </a>
                 <div class="ui simple right floated dropdown item" id="user_options">
                     <img class="ui avatar image" src="media/img/users_avatar.png"><?php echo $_COOKIE["wizzpercookielogin"]; ?><i class="dropdown icon"></i>
                     <div class="menu">
-                        <a href="modificar_perfil.php" class="item">Modificar perfil</a>
-                        <a class="item">Logout</a>
+                        <a class="item" href="modificar_perfil.php">Modificar perfil</a>
+                        <a class="item" href="kill.php">Logout</a>
                     </div>
                     
                 </div>
@@ -82,7 +82,7 @@
 					</div>
         		</div>
         		<div class="ten wide column">
-        			<form class="ui form">
+        			<form class="ui modifcarPerfil form" name="modi" method="POST" action="procs/modificar_perfil.proc.php">
         				<div class="ui horizontal segments">
 							<div class="ui orange segment">
 								<div class="field">
@@ -105,7 +105,7 @@
 								</div>
 								<div class="field">
 									<label>Repeat new password</label>
-									<input type="password" name="mod_repeat_pass">
+									<input type="password" name="mod_repeat_password">
 								</div>
 							</div>
 							<div class="ui orange segment">
@@ -123,7 +123,7 @@
 								<div class="field">
 									<label>Fecha de nacimiento</label>
 	                                <div class="ui left icon input">
-	                                    <input type="date" name="dateofbirth" max='<?php echo $nuevafecha;?>' value='<?php echo $birth;?>'>
+	                                    <input type="date" name="mod_dateofbirth" max='<?php echo $nuevafecha;?>' value='<?php echo $birth;?>'>
 	                                    <i class="calendar icon"></i>
 	                                </div>
                             	</div>
@@ -131,53 +131,52 @@
 						</div>
 						<div class="ui horizontal segments">
 							<div class="ui left aligned orange segment">
-								<div class="ui toggle checkbox">
+								<div class="ui checkbox">
 								<?php
 									if($respuestas!=0){
 								?>
-										<input type="checkbox" name="public" checked>
+										<input type="checkbox" name="recibir_mensajes" checked>
 										<label>Recibir mensajes de otros usuarios.</label>
 								<?php
 									}else{
 								?>
-										<input type="checkbox" name="public">
+										<input type="checkbox" name="recibir_mensajes">
 										<label>Recibir mensajes de otros usuarios.</label>
 								<?php
 									}
 								?>
 								</div>
 								<p></p>
-								<div class="ui toggle checkbox">
-								<?php
-									if($respuestas!=0){
-								?>
-										<input type="checkbox" name="public" checked>
+								<div class="ui checkbox">
+									<?php
+									if($notificaciones!=0){
+									?>
+										<input type="checkbox" name="notif_email" checked>
 										<label>Recibir notificaciones en mi email cuando reciba una respuesta.</label>
-								<?php
+									<?php
 									}else{
-								?>
-										<input type="checkbox" name="public">
+									?>
+										<input type="checkbox" name="notif_email">
 										<label>Recibir notificaciones en mi email cuando reciba una respuesta.</label>
-								<?php
+									<?php
 									}
-								?>
+									?>
+								</div>
+								<div class="ui error message"></div>
+								<p></p>
+								<div class="ui right floated buttons">
+									<button class="ui grey button" type="reset">Cancelar</button>
+									<div class="or"></div>
+									<button class="ui orange button" type="submit">Guardar</button>
 								</div>
 							</div>
 						</div>
-        			</form>
-        		</div>
+					</form>
+        		</div>	
         		<div class="one wide column"></div>
         	</div>
-			<div class=" row">
-				<div class="sixteen wide center aligned column">
-					<div class="ui buttons">
-						<button class="ui grey button">Cancelar</button>
-						<div class="or"></div>
-						<button class="ui orange button">Guardar</button>
-					</div>
-				</div>
-			</div>
-        </div>
+			
+		</div>
 		<!-- FIN CUERPO -->
     </body>
 </html>

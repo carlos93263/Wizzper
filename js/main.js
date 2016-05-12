@@ -150,6 +150,48 @@ $(document).ready(function(){
       		},
 		}
 	});
+	
+	//VALIDACION DEL FORMULARIO DE MODIFICAR PERFIL
+	$('.ui.modifcarPerfil.form').form({
+		fields: {
+  			mod_nickname: {
+        		identifier : 'mod_nickname',
+        		rules:[{
+            		type   : 'empty',
+            		prompt : 'Debes introducir un nickname.'
+          		}]
+      		},
+      		mod_email: {
+        		identifier : 'mod_email',
+        		rules:[{
+            		type   : 'email',
+            		prompt : 'Introduce un correo electrónico válido.'
+          		}]
+      		},
+      		mod_repeat_password: {
+        		identifier  : 'mod_repeat_password',
+        		rules: [{
+            		type   : 'match[mod_password]',
+            		prompt : 'Please put the same value in both fields'
+          		}]
+      		},
+      		mod_nombre: {
+        		identifier : 'mod_nombre',
+        		rules:[{
+            		type   : 'empty',
+            		prompt : 'Debes introducir un nombre.'
+          		}]
+      		},
+      		mod_apellidos: {
+        		identifier : 'mod_apellidos',
+        		rules:[{
+            		type   : 'empty',
+            		prompt : 'Debes introducir un apellido.'
+          		}]
+      		},
+		}
+	});
+
 	//ABRIR VENTANA MODAL nuevo tema
 	$('.tema.button').click(function(){
 		// show modal now
