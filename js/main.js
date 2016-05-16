@@ -92,7 +92,7 @@ $(document).ready(function(){
   			nickname: {
         		identifier : 'nickname',
         		rules:[{
-            		type   : 'text',
+            		type   : 'empty',
             		prompt : 'Debes introducir un nickname.'
           		}]
       		},
@@ -113,14 +113,14 @@ $(document).ready(function(){
       		nombre: {
         		identifier : 'nombre',
         		rules:[{
-            		type   : 'text',
+            		type   : 'empty',
             		prompt : 'Debes introducir un nombre.'
           		}]
       		},
       		apellidos: {
         		identifier : 'apellidos',
         		rules:[{
-            		type   : 'text',
+            		type   : 'empty',
             		prompt : 'Debes introducir un apellido.'
           		}]
       		},
