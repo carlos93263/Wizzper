@@ -48,7 +48,7 @@
 					?>
 					<i class="dropdown icon"></i>
                     <div class="menu">
-                        <a class="item" href="#">Psicólogos</a>
+                        <a class="item" href="modificar_perfil.php">Modificar Perfil</a>
                         <a class="item">Ayudas Sociales</a>
                     </div>
                     

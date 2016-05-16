@@ -8,21 +8,6 @@ $(document).ready(function(){
 				$('#textaomplir').html(a);
 			}
 		});
-	}else if (document.getElementById("foro")){
-		/*$.ajax({
-			type: "POST",
-			url: "./generosTemasPublicos.php",
-			success: function(a) {
-				$('#textaomplir').html(a);
-			}
-		});*/
-		$.ajax({
-			type: "POST",
-			url: "./mensajesRecibidos.php",
-			success: function(a) {
-				$('#texttema').html(a);
-			}
-		});
 	}
 	//ABRIR VENTANA MODAL
 	$('.mensaje.button').click(function(){
@@ -81,8 +66,7 @@ $(document).ready(function(){
 					$('#textaomplir').html(a);
 				}
 			});
-		});
-		
+		});	
 	//VALIDACION LOGIN
 	$('.ui.center.aligned.login.orange.form').form({
 		fields: {
@@ -102,7 +86,6 @@ $(document).ready(function(){
       		},
 		}
 	});
-
 	//VALIDACION REGISTRO
 	$('.ui.center.aligned.registro.orange.form').form({
 		fields: {
@@ -150,7 +133,6 @@ $(document).ready(function(){
       		},
 		}
 	});
-	
 	//VALIDACION DEL FORMULARIO DE MODIFICAR PERFIL
 	$('.ui.modifcarPerfil.form').form({
 		fields: {
@@ -191,7 +173,6 @@ $(document).ready(function(){
       		},
 		}
 	});
-
 	//ABRIR VENTANA MODAL nuevo tema
 	$('.tema.button').click(function(){
 		// show modal now
@@ -234,7 +215,7 @@ $(document).ready(function(){
 		document.getElementById("Varios").className="item";
 		$.ajax({
 			type: "POST",
-			url: "./mensajesRecibidos.php",
+			url: "./apartadoForo.php?tema=Amistad",
 			success: function(a) {
 				$('#texttema').html(a);
 			}
@@ -251,7 +232,7 @@ $(document).ready(function(){
 		document.getElementById("Varios").className="item";
 		$.ajax({
 			type: "POST",
-			url: "./mensajesRecibidos.php",
+			url: "./apartadoForo.php?tema=Amor",
 			success: function(a) {
 				$('#texttema').html(a);
 			}
@@ -268,7 +249,7 @@ $(document).ready(function(){
 		document.getElementById("Varios").className="item";
 		$.ajax({
 			type: "POST",
-			url: "./mensajesRecibidos.php",
+			url: "./apartadoForo.php?tema=Dinero",
 			success: function(a) {
 				$('#texttema').html(a);
 			}
@@ -285,7 +266,7 @@ $(document).ready(function(){
 		document.getElementById("Varios").className="item";
 		$.ajax({
 			type: "POST",
-			url: "./mensajesRecibidos.php",
+			url: "./apartadoForo.php?tema=Estudios",
 			success: function(a) {
 				$('#texttema').html(a);
 			}
@@ -302,7 +283,7 @@ $(document).ready(function(){
 		document.getElementById("Varios").className="item";
 		$.ajax({
 			type: "POST",
-			url: "./mensajesRecibidos.php",
+			url: "./apartadoForo.php?tema=Familia",
 			success: function(a) {
 				$('#texttema').html(a);
 			}
@@ -319,7 +300,7 @@ $(document).ready(function(){
 		document.getElementById("Varios").className="item";
 		$.ajax({
 			type: "POST",
-			url: "./mensajesRecibidos.php",
+			url: "./apartadoForo.php?tema=Salud",
 			success: function(a) {
 				$('#texttema').html(a);
 			}
@@ -336,7 +317,7 @@ $(document).ready(function(){
 		document.getElementById("Varios").className="item";
 		$.ajax({
 			type: "POST",
-			url: "./mensajesRecibidos.php",
+			url: "./apartadoForo.php?tema=Trabajo",
 			success: function(a) {
 				$('#texttema').html(a);
 			}
@@ -353,7 +334,7 @@ $(document).ready(function(){
 		document.getElementById("Varios").className="item active";
 		$.ajax({
 			type: "POST",
-			url: "./mensajesRecibidos.php",
+			url: "./apartadoForo.php?tema=Varios",
 			success: function(a) {
 				$('#texttema').html(a);
 			}

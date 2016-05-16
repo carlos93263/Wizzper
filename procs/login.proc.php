@@ -16,7 +16,6 @@
 				$_SESSION['wizzperpass']= $send['user_password'];
 				$user = $send['user_nickname'];
 				setcookie("wizzpercookielogin", $user, time()+60*60*24*30);//30 dies de vida de la cookie
-				echo $_COOKIE["a"]; 
 				header("Location: ../index.php");
 				die();
 			}

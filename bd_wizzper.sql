@@ -108,6 +108,25 @@ USE `bd_whisperinlight`;
 			ADD pthe_id int(11) NULL;
 			
 --
+-- Estructura de la taula `tbl_valorationComment`
+--
+	CREATE TABLE IF NOT EXISTS `tbl_valorationComment` (
+		`vaco_id` int(11) NOT NULL,
+		`vaco_like` int(3) NULL
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+	/*  Canvi a Primari Key */
+			ALTER TABLE `tbl_valorationComment`
+			ADD CONSTRAINT PRIMARY KEY (vaco_id);
+	/*  Canvi a autoincremental*/
+			ALTER TABLE `tbl_valorationComment`
+			MODIFY `vaco_id` int(11) NOT NULL AUTO_INCREMENT;	
+	/*  Creació de les FK */
+			ALTER TABLE `tbl_valorationComment`
+			ADD user_id int(11) NULL;
+			ALTER TABLE `tbl_valorationComment`
+			ADD cpth_id int(11) NULL;
+			
+--
 -- Estructura de la taula `tbl_categories`
 --
 	CREATE TABLE IF NOT EXISTS `tbl_categories` (
