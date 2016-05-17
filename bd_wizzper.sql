@@ -332,6 +332,16 @@ USE `bd_whisperinlight`;
 	ADD CONSTRAINT FOREIGN KEY (user_id)
 	REFERENCES `tbl_user` (user_id);
 	
+-- PK tbl_user FK tbl_valorationComment 
+	ALTER TABLE `tbl_valorationComment`
+	ADD CONSTRAINT FOREIGN KEY (user_id)
+	REFERENCES `tbl_user` (user_id);
+	
+-- PK tbl_user FK tbl_valorationComment 
+	ALTER TABLE `tbl_valorationComment`
+	ADD CONSTRAINT FOREIGN KEY (cpth_id)
+	REFERENCES `tbl_commentsPublicThems` (cpth_id);
+	
 -- PK tbl_user FK tbl_xatText 
 	ALTER TABLE `tbl_xatText`
 	ADD CONSTRAINT FOREIGN KEY (user_id)
