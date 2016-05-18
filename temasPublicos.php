@@ -9,9 +9,9 @@
         <title>Plantilla HTML de Wizzper</title>
         <!-- CARGAR MI CSS -->
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!-- CARGAR  JQUERY -->
+        <!-- CARGAR JQUERY -->
         <script src="js/jquery-1.12.3.min.js" type="text/javascript"></script>
-		<!-- CARGAR  JQUERY 2 -->
+		<!-- CARGAR JQUERY 2 -->
         <script src="js/jquery.min.js" type="text/javascript"></script>
         <!-- CARGAR CSS SEMANTIC -->
         <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
@@ -42,7 +42,7 @@
                     Temas Públicos
                 </a>
                 <div class="ui simple right floated dropdown item" id="user_options">
-                    <img class="ui avatar image" src="media/img/users_avatar.png"><?php echo $_COOKIE["wizzpercookielogin"];?><i class="dropdown icon"></i>
+                    <img class="ui avatar image" src="media/img/users_avatar.png"><?php echo $_COOKIE["wizzper"];?><i class="dropdown icon"></i>
                     <div class="menu">
                         <a class="item" href="modificar_perfil.php">Modificar Perfil</a>
                         <a class="item" href="kill.php">Logout</a>
@@ -54,7 +54,13 @@
         <!-- FIN DE MENU -->
 		<!-- INICIO CUERPO -->
     		<div class="ui vertically divided stackable grid" id="grid_cuerpo">
-                <div class="four column row">
+                <?php
+					if(isset($_SESSION['temanuevo'])&& $_SESSION['temanuevo'] != ""){
+						echo "<h2>".$_SESSION['temanuevo']."</h2>";
+						$_SESSION['temanuevo'] = "";
+					}
+				?>
+				<div class="four column row">
 					<div class="one wide column">
 					</div>
                     <div class="ten wide column">
@@ -80,8 +86,7 @@
                     </div>
 					<div class="one wide column">
 					</div>
-					</div>
-                </div>
+				</div>
             </div>	
 		<!-- VENTANA MODAL-->
 		<div class="ui tema modal">
@@ -90,15 +95,51 @@
 				Crear Tema Nuevo
 			</div>
 			<br/>
-			<form action="" class="ui tema form">
+			<form action="procs/nuevoTema.proc.php" method="get" class="ui tema form">
 				<div class="required field">
 					<label> Titulo del Tema</label>
-					<input id="matter" type="text">
+					<input id="matter" name="matter" type="text">
 				</div>
 				<div class="required field">
 					<label> Cuerpo del tema</label>
-					<textarea id="body"></textarea>
+					<textarea id="body" name="body"></textarea>
 				</div>
+				
+				<div class="ui vertically divided stackable grid" >
+					<div class="two column row">
+						<div class="eight wide column">
+							<div class="required field">
+								<select name="categoria" class="ui search dropdown">
+									<option value="">Seleccione una Categoria</option>
+									<option value="1">Amistad</option>
+									<option value="2">Amor</option>
+									<option value="3">Dinero</option>
+									<option value="4">Estudios</option>
+									<option value="5">Familia</option>
+									<option value="6">Salud</option>
+									<option value="7">Trabajo</option>
+									<option value="8">Varios</option>
+								</select>
+							</div>
+						</div>
+						<?php
+							if($_SESSION['wizzperkous']==2){
+						?>
+						<div class="eight wide column">
+							<div class="required field">
+								<select name="pro" class="ui search dropdown">
+									<option value="">Tipo de Artículo</option>
+									<option value="1">Consulta/Necesito Ayuda</option>
+									<option value="2">Articulo Profesional/Recomendaciones</option>
+								</select>
+							</div>
+						</div>
+						<?php
+							}
+						?>
+					</div>
+				</div>
+				
 				<div class="ui submit button">Enviar</div>
 			</form>
 		</div>

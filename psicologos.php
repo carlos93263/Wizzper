@@ -61,17 +61,12 @@
                     <div class="ten wide column">
                         <!-- AQUI VA EL CONTINGUT QUE TENS DE LES DUES PESTANYES I VENTANA MODAL ETC... -->   
 						<div class="ui top attached tabular menu">
-							<a id="mMenu1" class="item active">
-								Mensajes Recibidos
+							<a id="psicologos" class="item active">
+								Psicologos
 							</a>
-							<a id="mMenu2" class="item">
-								Mensajes Enviados
+							<a id="ayudasSociales" class="item">
+								Ayudas Sociales
 							</a>
-							<div class="right menu">
-								<div class="item">
-									<div id="menNuevo" class="ui mensaje button"> Crear Mensaje nuevo</div><br/>
-								</div>
-							</div>
 						</div>
 						<div class="ui bottom attached segment">
 							<p id="textaomplir"></p>
@@ -85,61 +80,6 @@
 					</div>
                 </div>
             </div>	
-		<!-- VENTANA MODAL-->
-		<div class="ui mensaje modal">
-			<i class="close icon"></i>
-			<div class="header">
-				Crear Mensaje Nuevo
-			</div>
-			<br/>
-			<form action="" class="ui mensaje form">
-				<div class="required field">
-					<label> Asunto del Mensaje</label>
-					<input id="matter" type="text">
-				</div>
-				<div class="required field">
-					<label> Cuerpo del mensaje</label>
-					<textarea id="body"></textarea>
-				</div>
-				<div class="inline required fields">
-					<label for="fruit">A cuantas personas quieres enviar el mensaje:</label>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input type="radio" name="numPer" checked="" tabindex="0" class="hidden">
-							<label>1 Personas</label>
-						</div>
-					</div>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input type="radio" name="numPer" tabindex="0" class="hidden">
-							<label>5 Personas</label>
-						</div>
-					</div>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input type="radio" name="numPer" tabindex="0" class="hidden">
-							<label>10 Personas</label>
-						</div>
-					</div>
-				</div>
-				<div class="inline required fields">
-					<label for="opTip">Opinión :</label>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input type="radio" name="opTip" checked="" tabindex="0" class="hidden">
-							<label>Femenina</label>
-						</div>
-					</div>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input type="radio" name="opTip" tabindex="0" class="hidden">
-							<label>Masculina</label>
-						</div>
-					</div>
-				</div>
-				<div class="ui submit button">Enviar</div>
-			</form>
-		</div>
 		<!-- FIN CUERPO -->
     </body>
 </html>

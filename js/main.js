@@ -8,6 +8,14 @@ $(document).ready(function(){
 				$('#textaomplir').html(a);
 			}
 		});
+	}else if(document.getElementById("foro")){
+		$.ajax({
+			type: "POST",
+			url: "./apartadoForo.php?tema=Amistad",
+			success: function(a) {
+				$('#texttema').html(a);
+			}
+		});
 	}
 	//ABRIR VENTANA MODAL
 	$('.mensaje.button').click(function(){
@@ -198,6 +206,24 @@ $(document).ready(function(){
 					{
 						type   : 'empty',
 						prompt : 'Escribe el tema que quieras enviar'
+					}
+				]
+			},
+			categoria: {
+				identifier: 'categoria',
+				rules: [
+					{
+						type   : 'empty',
+						prompt : 'Seleciona la categoria'
+					}
+				]
+			},
+			pro: {
+				identifier: 'pro',
+				rules: [
+					{
+						type   : 'empty',
+						prompt : 'Seleciona el tipo de tema'
 					}
 				]
 			}
