@@ -61,15 +61,17 @@
                     <div class="fourteen wide column">
                         <!-- AQUI VA EL CONTINGUT QUE TENS DE LES DUES PESTANYES I VENTANA MODAL ETC... -->   
 						<div class="ui top attached tabular menu">
-							<a id="psicologos" href="psicologos.php" class="item active">
+							<a id="psicologos" href="psicologos.php" class="item">
 								Psicologos
 							</a>
-							<a id="ayudasSociales" href="ayudas_sociales.php" class="item">
+							<a id="ayudasSociales" href="ayudas_sociales.php" class="item active">
 								Ayudas Sociales
 							</a>
 						</div>
 						<div class="ui bottom attached segment">
-							<iframe src="http://www.cat.psicologosenbarcelona.es/" width="100%" height="790px"></iframe>
+							<?php
+							include ("serveis_gene.html");
+							?>
 						</div>
                     </div>
 					<div class="one wide column">

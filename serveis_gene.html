@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xml:lang="es-ES" lang="es-ES">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="WT.z_idioma" content='es' />
+		<title>Servicios sociales. Generalitat de Cataluña</title>
+		<link rel="shortcut icon" type="image/x-icon" href="http://web.gencat.cat/web/resources/fwkResponsive/comuns/img/favicon.ico" />
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/comuns/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/comuns/css/styles.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/comuns/css/leaflet.min.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/comuns/css/master.responsive.css" rel="stylesheet" type="text/css"/>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/comuns/js/jquery.min.js" type="text/javascript"></script>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/comuns/js/master.min.js" type="text/javascript"></script>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/comuns/js/generic_responsive.js" type="text/javascript"></script>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/comuns/js/master.responsive.js" type="text/javascript"></script>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/css/capcalera.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/fpca_subcapcalera/css/fpca_subcapcalera.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/fpca_llista_pestanyes/css/fpca_llista_pestanyes.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/nougencat/article/css/fpca_impacteTema.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/fpca_llista_mesEnllacos/css/fpca_llista_mesEnllacos.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/fpca_llista_simple/css/fpca_llista_simple.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/fpca_llista_fonsDestacat/css/fpca_llista_fonsDestacat.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/fpca_llista/css/fpca_llista.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/fpca_peu/css/fpca_peu.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/fpca_peu_faldoLlista/css/fpca_peu_faldoLlista.css" rel="stylesheet" type="text/css"/>
+		<link href="http://web.gencat.cat/web/resources/fwkResponsive/fpca_peu_faldoGiny/css/fpca_peu_faldoGiny.css" rel="stylesheet" type="text/css"/>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/js/fpca_capcalera.js" type="text/javascript"></script>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/fpca_subcapcalera/js/fpca_subcapcalera.js" type="text/javascript"></script>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/fpca_llista_pestanyes/js/fpca_llista_pestanyes.js" type="text/javascript"></script>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/fpca_llista_mesEnllacos/js/fpca_llista_mesEnllacos.js" type="text/javascript"></script>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/fpca_llista_simple/js/fpca_llista_simple.js" type="text/javascript"></script>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/fpca_llista_fonsDestacat/js/fpca_llista_fonsDestacat.js" type="text/javascript"></script>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/fpca_llista/js/fpca_llista.js" type="text/javascript"></script>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/fpca_peu/js/fpca_peu.js" type="text/javascript"></script>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/fpca_peu_faldoLlista/js/fpca_peu_faldoLlista.js" type="text/javascript"></script>
+		<script src="http://web.gencat.cat/web/resources/fwkResponsive/fpca_peu_faldoSocial/js/fpca_peu_faldoSocial.js" type="text/javascript"></script>
+		<meta property="og:title" content="Servicios sociales"/>
+		<meta property="og:description" content="Generalitat de Catalunya"/>
+		<meta property="og:site_name" content="Generalitat de Cataluña"/>
+		<meta property="og:image" content="http://web.gencat.cat/system/modules/cat.vass.wcm.template.common/resources/fwk/comuns/img/escut_gris.jpg" />
+		<meta property="og:image:secure_url" content="https://web.gencat.cat/system/modules/cat.vass.wcm.template.common/resources/fwk/comuns/img/escut_gris.jpg" /> 
+		<meta property="og:image:width" content="640" /> 
+		<meta property="og:image:height" content="442" />
+		<meta name="twitter:title" content="Servicios sociales">
+		<meta name="twitter:description" content="Generalitat de Catalunya">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@gencat">
+		<meta property="twitter:image" content="http://web.gencat.cat/system/modules/cat.vass.wcm.template.common/resources/fwk/comuns/img/escut_gris.jpg" />
+	</head>
+	<body>
+		<section class="padding-xs padding-sm padding-md colorSectionEven">
+			<article class="container fullcontainer-xs">
+					<div id="center_2R" >
+						<div class="fpca_llista" id="llista_0601ec7b-fd05-11e3-975f-005056924a59_0601ec7c-fd05-11e3-975f-005056924a59">
+							<div class="llistat_destacat_noticies mes_actualitat pd-15 pd-30 llista-tipus-7">
+								<h2 class="titol-llista header2">Los servicios sociales en Cataluña</h2>
+								<ul class="col-sm-12 llistat_enllacos_filet_cont list-group caixa ">
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://aplicacions.economia.gencat.cat/wpres/2015/02_llei.htm" title="Presupuesto 2015" target="_blank">Presupuesto 2015</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>Distribución del presupuesto de la Generalitat de Cataluña para el año 2015, con el detalle de los ingresos y gastos e información de las entidades que forman parte del sector público.</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://treballiaferssocials.gencat.cat/es/" title="Dept. de Trabajo, Asuntos Sociales y Familias" target="_blank">Dept. de Trabajo, Asuntos Sociales y Familias</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>Gestiona las políticas sociales vinculadas al Estado de Bienestar, la lucha contra la exclusión social, la integración social, la diversidad religiosa y las entidades.</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://justicia.gencat.cat/" title="Dep. de Justicia" target="_blank">Dep. de Justicia</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>Se encarga de la Administración de justicia en Cataluña, los servicios penitenciarios, el derecho civil catalán, las asociaciones y fundaciones, notarios y registradores.</p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://treballiaferssocials.gencat.cat/ca/el_departament/plans_dactuacio/" title="Planes de actuación" target="_blank">Planes de actuación</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>Documentos de estrategias de trabajo en los ámbitos de la lucha contra la pobreza, la inmigración, las personas con discapacidad, las adicciones y los servicios sociales en general.<em></em></p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://treballiaferssocials.gencat.cat/ca/ambits_tematics/serveis_socials/" title="Servicios sociales" target="_blank">Servicios sociales</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>Qué son los servicios sociales básicos y especializados, los recursos, las ayudas y las subvenciones.<em></em></p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://treballiaferssocials.gencat.cat/ca/ambits_tematics/immigracio/" title="Inmigración" target="_blank">Inmigración</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>Datos sobre inmigración, acogida, informes de extranjería, información y orientación al inmigrante, servicio de acompañamiento y ayudas y subvenciones.<em></em></p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://treballiaferssocials.gencat.cat/ca/ambits_tematics/persones_amb_dependencia/" title="Personas con dependencia" target="_blank">Personas con dependencia</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>Información y recursos en relación con las situaciones de dependencia, los cuidadores y los profesionales del sector, así como las políticas de promoción de la autonomía.<em></em></p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://treballiaferssocials.gencat.cat/ca/ambits_tematics/persones_amb_discapacitat/" title="Personas con discapacidad" target="_blank">Personas con discapacidad</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>Qué es y cómo se reconoce la situación de discapacidad, información y orientación, recursos y apoyo a la autonomía en el propio hogar.<em></em></p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://treballiaferssocials.gencat.cat/ca/ambits_tematics/pobresa_i_inclusio_social/" title="Inclusión y cohesión social" target="_blank">Inclusión y cohesión social</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>Servicios y recursos para prevenir y luchar contra los factores de exclusión social y facilitar las herramientas para conseguir una sociedad más cohesionada y justa.<em></em></p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://administraciojusticia.gencat.cat/ca/serveis_als_ciutadans/assistencia_juridica_grat/" title="Asistencia jurídica gratuita" target="_blank">Asistencia jurídica gratuita</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>La Generalitat garantiza el cumplimiento del derecho constitucional a disponer de una justicia gratuita.<em></em></p>
+												</div>
+											</div>	
+										</div>
+									</li>
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://administraciojusticia.gencat.cat/ca/serveis_als_ciutadans/atencio_a_la_victima/" title="Atención a la víctima" target="_blank">Atención a la víctima</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>Información y atención a la víctima de delitos, con direcciones y teléfonos de contacto, así como oficinas donde dirigirse.<em></em></p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://dixit.gencat.cat/es/" title="Documentación de servicios sociales: DIXIT" target="_blank">Documentación de servicios sociales: DIXIT</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>Gestión del conocimiento sobre bienestar social, los derechos de ciudadanía, la promoción de la autonomía y la atención a la dependencia.<em></em></p>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="destacat_noticies list-group-item col-sm-3">
+										<div class="destacat_noticies_cont no-imatge">
+											<h3>
+												<a href="http://xarxa-omnia.org/" title="Red Òmnia" target="_blank">Red Òmnia</a>
+											</h3>
+											<div class='bloc-mobil'>
+												<div class="descripcio">
+													<p>Programa preventivo, socioeducativo, de promoción individual y de apoyo a colectivos con mayor riesgo de vulnerabilidad.<em></em></p>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+			</article>
+		</section>
+		<script src="http://web.gencat.cat/web/resources/fwk/analytics/js/webtrends2.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			var _tag = new WebTrends();
+			_tag.dcsid="dcsfjd2oavz5bdzp3xsadip96_5u5j";
+			_tag.dcsGetId();
+		</script>
+		<script type="text/javascript">
+			_tag.DCSext.wt_departament="Gencat";
+			_tag.DCSext.wt_web1="Portal Gencat";
+			_tag.DCSext.wt_web2="Temes";
+			_tag.DCSext.wt_web3="";
+			_tag.status="0";
+			_tag.WT.cg_n="";
+			_tag.WT.cg_s="";
+			_tag.DCSext.subcontent1="";
+			_tag.DCSext.subcontent2="";
+			_tag.DCSext.subcontent3="";
+			_tag.DCSext.subcontent4="";
+			_tag.DCSext.site_plus="web";
+			try {
+				$('document').ready(function (){
+					_tag.dcsCollect();
+				});
+			} catch(e){
+				_tag.dcsCollect();
+			}
+		</script>
+		<noscript>
+			<img alt="" id="DCSIMG" width="1" height="1" src="http://statse.webtrendslive.com/dcsfjd2oavz5bdzp3xsadip96_5u5j/njs.gif?dcsuri=/es/temes/serveis/&amp;WT.js=No&amp;WT.tv=8.0.2"/> 
+		</noscript>
+	</body>
+</html>
