@@ -1,13 +1,25 @@
 $(document).ready(function(){
 	//AJAX PARA CARGAR LA PRIMERA VEZ LA PAGINA
 	if(document.getElementById("mMenu1")) {
-		$.ajax({
-			type: "POST",
-			url: "./mensajesRecibidos.php",
-			success: function(a) {
-				$('#textaomplir').html(a);
-			}
-		});
+		function loadData(page){
+            $.ajax({
+                type: "POST",
+                url: "load_data.php",
+                data: "page="+page,
+                success: function(msg)
+                {
+                    $(document).ajaxComplete(function(event, request, settings)
+                    {
+                        $("#container").html(msg);
+                    });
+                }
+            });
+        }
+       loadData(1);  // For first time page load default results
+        $(document).on("click","a#item", function(){
+            var page = $(this).attr('p');
+            loadData(page);
+        });
 	}else if(document.getElementById("foro")){
 		$.ajax({
 			type: "POST",
@@ -17,6 +29,72 @@ $(document).ready(function(){
 			}
 		});
 	}
+	
+	//MENU DEL INDEX
+		//CAMBIAR A LA PRIMERA PESTAÑA DEL MENU PRINCIPAL
+		$('#mMenu1').click(function(){
+			document.getElementById("mMenu1").className="item active";
+			document.getElementById("mMenu2").className="item";
+			/*$.ajax({
+				type: "POST",
+				url: "./mensajesRecibidos.php",
+				success: function(a) {
+					$('#mensajes').html(a);
+				}
+			});*/
+			function loadData(page){
+	            $.ajax({
+	                type: "POST",
+	                url: "load_data.php",
+	                data: "page="+page,
+	                success: function(msg)
+	                {
+	                    $(document).ajaxComplete(function(event, request, settings)
+	                    {
+	                        $("#container").html(msg);
+	                    });
+	                }
+	            });
+	        }
+	       loadData(1);  // For first time page load default results
+	        $(document).on("click","a#item", function(){
+	            var page = $(this).attr('p');
+	            loadData(page);
+	        });
+		});
+		//CAMBIAR A LA SEGUNDA PESTAÑA DEL MENU PRINCIPAL
+		$('#mMenu2').click(function(){
+			document.getElementById("mMenu1").className="item";
+			document.getElementById("mMenu2").className="item active";
+			/*$.ajax({
+				type: "POST",
+				url: "./mensajesEnviados.php",
+				success: function(a) {
+					$('#mensajes').html(a);
+				}
+			});*/
+			/*function loadData(page){
+	            $.ajax({
+	                type: "POST",
+	                url: "load_data.php",
+	                data: "page="+page,
+	                success: function(msg)
+	                {
+	                    $(document).ajaxComplete(function(event, request, settings)
+	                    {
+	                        $("#container").html(msg);
+	                    });
+	                }
+	            });
+	        }
+	       loadData(1);  // For first time page load default results
+	        $(document).on("click","a#item", function(){
+	            var page = $(this).attr('p');
+	            loadData(page);
+	        });*/
+		});
+		
+
 	//ABRIR VENTANA MODAL
 	$('.mensaje.button').click(function(){
 		// show modal now
@@ -50,31 +128,6 @@ $(document).ready(function(){
 	$('.ui.radio.checkbox')
 		.checkbox()
 	;
-	//MENU DEL INDEX
-		//CAMBIAR A LA PRIMERA PESTAÑA DEL MENU PRINCIPAL
-		$('#mMenu1').click(function(){
-			document.getElementById("mMenu1").className="item active";
-			document.getElementById("mMenu2").className="item";
-			$.ajax({
-				type: "POST",
-				url: "./mensajesRecibidos.php",
-				success: function(a) {
-					$('#textaomplir').html(a);
-				}
-			});
-		});
-		//CAMBIAR A LA SEGUNDA PESTAÑA DEL MENU PRINCIPAL
-		$('#mMenu2').click(function(){
-			document.getElementById("mMenu1").className="item";
-			document.getElementById("mMenu2").className="item active";
-			$.ajax({
-				type: "POST",
-				url: "./mensajesEnviados.php",
-				success: function(a) {
-					$('#textaomplir').html(a);
-				}
-			});
-		});	
 	//VALIDACION LOGIN
 	$('.ui.center.aligned.login.orange.form').form({
 		fields: {

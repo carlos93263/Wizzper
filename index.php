@@ -6,7 +6,7 @@
 <html lang="es">
     <head>
         <meta charset="utf-8" />
-        <title>Plantilla HTML de Wizzper</title>
+        <title>Home</title>
         <!-- CARGAR MI CSS -->
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <!-- CARGAR  JQUERY -->
@@ -74,11 +74,12 @@
 							</div>
 						</div>
 						<div class="ui bottom attached segment">
-							<p id="textaomplir"></p>
+							<div id="container" class="ui grid">
+								
+							</div>
 						</div>
                     </div>
                     <div class="four wide column">
-                        <!-- AQUI ANIRAN TOTS ELS ANUNCIS I ETC... QUE VOLGUEM CARREGAR -->
                     </div>
 					<div class="one wide column">
 					</div>
