@@ -1,25 +1,7 @@
 $(document).ready(function(){
 	//AJAX PARA CARGAR LA PRIMERA VEZ LA PAGINA
-	if(document.getElementById("mMenu1")) {
-		function loadData(page){
-            $.ajax({
-                type: "POST",
-                url: "load_data.php",
-                data: "page="+page,
-                success: function(msg)
-                {
-                    $(document).ajaxComplete(function(event, request, settings)
-                    {
-                        $("#container").html(msg);
-                    });
-                }
-            });
-        }
-       loadData(1);  // For first time page load default results
-        $(document).on("click","a#item", function(){
-            var page = $(this).attr('p');
-            loadData(page);
-        });
+	if($( "#mMenu1" ).hasClass( "active" )) {
+		loadRecibidos(1);  // For first time page load default results
 	}else if(document.getElementById("foro")){
 		$.ajax({
 			type: "POST",
@@ -35,66 +17,16 @@ $(document).ready(function(){
 		$('#mMenu1').click(function(){
 			document.getElementById("mMenu1").className="item active";
 			document.getElementById("mMenu2").className="item";
-			/*$.ajax({
-				type: "POST",
-				url: "./mensajesRecibidos.php",
-				success: function(a) {
-					$('#mensajes').html(a);
-				}
-			});*/
-			function loadData(page){
-	            $.ajax({
-	                type: "POST",
-	                url: "load_data.php",
-	                data: "page="+page,
-	                success: function(msg)
-	                {
-	                    $(document).ajaxComplete(function(event, request, settings)
-	                    {
-	                        $("#container").html(msg);
-	                    });
-	                }
-	            });
-	        }
-	       loadData(1);  // For first time page load default results
-	        $(document).on("click","a#item", function(){
-	            var page = $(this).attr('p');
-	            loadData(page);
-	        });
-		});
+			loadRecibidos(1);
+
+	    });
 		//CAMBIAR A LA SEGUNDA PESTAÑA DEL MENU PRINCIPAL
 		$('#mMenu2').click(function(){
 			document.getElementById("mMenu1").className="item";
 			document.getElementById("mMenu2").className="item active";
-			/*$.ajax({
-				type: "POST",
-				url: "./mensajesEnviados.php",
-				success: function(a) {
-					$('#mensajes').html(a);
-				}
-			});*/
-			/*function loadData(page){
-	            $.ajax({
-	                type: "POST",
-	                url: "load_data.php",
-	                data: "page="+page,
-	                success: function(msg)
-	                {
-	                    $(document).ajaxComplete(function(event, request, settings)
-	                    {
-	                        $("#container").html(msg);
-	                    });
-	                }
-	            });
-	        }
-	       loadData(1);  // For first time page load default results
-	        $(document).on("click","a#item", function(){
-	            var page = $(this).attr('p');
-	            loadData(page);
-	        });*/
-		});
-		
+			loadEnviados(1);
 
+		});
 	//ABRIR VENTANA MODAL
 	$('.mensaje.button').click(function(){
 		// show modal now
@@ -419,4 +351,41 @@ $(document).ready(function(){
 			}
 		});
 	});
-});
+	});
+	function loadRecibidos(page){
+		$.ajax({
+			type: "POST",
+			url: "load_recibidos.php",
+			data: "page="+page,
+			success: function(msg)
+			{
+				$(document).ajaxComplete(function(event, request, settings)
+				{
+					$("#container").html(msg);
+				});
+			}
+		});
+	}
+	function loadEnviados(page){
+		$.ajax({
+			type: "POST",
+			url: "load_enviados.php",
+			data: "page="+page,
+			success: function(msg)
+			{
+				$(document).ajaxComplete(function(event, request, settings)
+				{
+					$("#container").html(msg);
+				});
+			}	
+		});
+	}
+	$(document).on("click","a#item", function(){
+		if($("#mMenu1").hasClass("item active")){
+			var page = $(this).attr('p');
+			loadRecibidos(page);
+		} else {
+			var page = $(this).attr('p');
+			loadEnviados(page);
+		}
+	});
