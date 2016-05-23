@@ -2,14 +2,8 @@ $(document).ready(function(){
 	//AJAX PARA CARGAR LA PRIMERA VEZ LA PAGINA
 	if($( "#mMenu1" ).hasClass( "active" )) {
 		loadRecibidos(1);  // For first time page load default results
-	}else if(document.getElementById("foro")){
-		$.ajax({
-			type: "POST",
-			url: "./apartadoForo.php?tema=Amistad",
-			success: function(a) {
-				$('#texttema').html(a);
-			}
-		});
+	}else if($( "#foro" ).hasClass( "active" )){
+		loadforo(1, "Amistad");
 	}
 	
 	//MENU DEL INDEX
@@ -224,13 +218,8 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item";
-		$.ajax({
-			type: "POST",
-			url: "./apartadoForo.php?tema=Amistad",
-			success: function(a) {
-				$('#texttema').html(a);
-			}
-		});
+		var tema = $(this).attr('f');
+		loadforo(1, tema);
 	});
 	$('#Amor').click(function(){
 		document.getElementById("Amistad").className="item";
@@ -241,13 +230,8 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item";
-		$.ajax({
-			type: "POST",
-			url: "./apartadoForo.php?tema=Amor",
-			success: function(a) {
-				$('#texttema').html(a);
-			}
-		});
+		var tema = $(this).attr('f');
+		loadforo(1, tema);
 	});
 	$('#Dinero').click(function(){
 		document.getElementById("Amistad").className="item";
@@ -258,13 +242,8 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item";
-		$.ajax({
-			type: "POST",
-			url: "./apartadoForo.php?tema=Dinero",
-			success: function(a) {
-				$('#texttema').html(a);
-			}
-		});
+		var tema = $(this).attr('f');
+		loadforo(1, tema);
 	});
 	$('#Estudios').click(function(){
 		document.getElementById("Amistad").className="item";
@@ -275,13 +254,8 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item";
-		$.ajax({
-			type: "POST",
-			url: "./apartadoForo.php?tema=Estudios",
-			success: function(a) {
-				$('#texttema').html(a);
-			}
-		});
+		var tema = $(this).attr('f');
+		loadforo(1, tema);
 	});
 	$('#Familia').click(function(){
 		document.getElementById("Amistad").className="item";
@@ -292,13 +266,8 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item";
-		$.ajax({
-			type: "POST",
-			url: "./apartadoForo.php?tema=Familia",
-			success: function(a) {
-				$('#texttema').html(a);
-			}
-		});
+		var tema = $(this).attr('f');
+		loadforo(1, tema);
 	});
 	$('#Salud').click(function(){
 		document.getElementById("Amistad").className="item";
@@ -309,15 +278,10 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item active";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item";
-		$.ajax({
-			type: "POST",
-			url: "./apartadoForo.php?tema=Salud",
-			success: function(a) {
-				$('#texttema').html(a);
-			}
-		});
+		var tema = $(this).attr('f');
+		loadforo(1, tema);
 	});
-	$('#Trabajo').click(function(){
+	$('#Trabajo').on("click", function(){
 		document.getElementById("Amistad").className="item";
 		document.getElementById("Amor").className="item";
 		document.getElementById("Dinero").className="item";
@@ -326,13 +290,8 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Trabajo").className="item active";
 		document.getElementById("Varios").className="item";
-		$.ajax({
-			type: "POST",
-			url: "./apartadoForo.php?tema=Trabajo",
-			success: function(a) {
-				$('#texttema').html(a);
-			}
-		});
+		var tema = $(this).attr('f');
+		loadforo(1, tema);
 	});
 	$('#Varios').click(function(){
 		document.getElementById("Amistad").className="item";
@@ -343,14 +302,8 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item active";
-		$.ajax({
-			type: "POST",
-			url: "./apartadoForo.php?tema=Varios",
-			success: function(a) {
-				$('#texttema').html(a);
-			}
-		});
-	});
+		var tema = $(this).attr('f');
+		loadforo(1, tema);
 	});
 	function loadRecibidos(page){
 		$.ajax({
@@ -380,12 +333,45 @@ $(document).ready(function(){
 			}	
 		});
 	}
-	$(document).on("click","a#item", function(){
+	function loadforo(page, tema){
+		document.getElementById(tema).className="item active";
+		$.ajax({
+			type: "GET",
+			url: "load_foro.php",
+			data: "page="+page+"&tema="+tema,  	
+			success: function(msg)
+			{
+				$(document).ajaxComplete(function(event, request, settings)
+				{
+					$("#container").html(msg);
+				});
+			}
+		});
+	}
+	$(document).on("click","a.item", function(){
 		if($("#mMenu1").hasClass("item active")){
 			var page = $(this).attr('p');
 			loadRecibidos(page);
-		} else {
+		} else if($("#mMenu2").hasClass("item active")){
 			var page = $(this).attr('p');
 			loadEnviados(page);
+		}else if($("#foro").hasClass("item active")){
+			var page = $(this).attr('p');
+			var tema = $(this).attr('f');;
+			loadforo(page, tema);
 		}
 	});
+	$(document).on("click","div.content", function(){
+		alert("hola");
+		if($("#mMenu1").hasClass("item active")){
+			alert("hola1");
+			var missatge = $(this).attr('id');
+			alert(missatge);
+			cargarRecibidos(missatge);
+			
+		} else {
+			var missatge = $(this).attr('id');
+			cargarEnviados(missatge);
+		}
+	});
+});	

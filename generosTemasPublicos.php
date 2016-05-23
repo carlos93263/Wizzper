@@ -12,19 +12,19 @@
 		while($send = mysqli_fetch_array($datos)){
 			//echo $send['cate_id'];
 			if($count == 0){
-				echo "<a id='$send[cate_name]' class='item active'>$send[cate_name]</a><br/> ";
+				echo "<a id='$send[cate_name]' f='$send[cate_name]' class='item active'>$send[cate_name]</a><br/> ";
 				$count++;
 			}else{
-				echo "<a id='$send[cate_name]' class='item'>$send[cate_name]</a><br/> ";
+				echo "<a id='$send[cate_name]' f='$send[cate_name]' class='item'>$send[cate_name]</a><br/> ";
 			}
 		}
 			echo "</div>
 			  </div>
 			  <div class='thirteen wide stretched column'>
 				<div class='ui segment'>
-					<p id='texttema'>
-						
-					</p>
+					<div id='container' class='ui grid'>
+								
+					</div>
 				</div>
 			  </div>
 			</div>";

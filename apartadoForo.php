@@ -3,7 +3,7 @@
 	include ("conexion.php");
 	$tema = $_REQUEST['tema'];
 	//Lanzamiento de la consulta
-	$sql = "SELECT tbl_publicThems.pthe_id, tbl_publicThems.pthe_matter, tbl_publicThems.pthe_dateText, tbl_publicThems.pthe_timeText, tbl_publicThems.pthe_closed, tbl_publicThems.pthe_ProfesionalArticle from tbl_publicThems inner join tbl_categories on tbl_publicThems.cate_id=tbl_categories.cate_id Where tbl_categories.cate_name='$tema'";
+	$sql = "SELECT tbl_user.user_nickname, tbl_publicThems.pthe_id, tbl_publicThems.pthe_matter, tbl_publicThems.pthe_dateText, tbl_publicThems.pthe_timeText, tbl_publicThems.pthe_closed, tbl_publicThems.pthe_ProfesionalArticle from tbl_publicThems inner join tbl_categories on tbl_publicThems.cate_id=tbl_categories.cate_id inner join tbl_user on tbl_publicThems.user_id=tbl_user.user_id Where tbl_categories.cate_name='$tema'";
 	//echo $sql;
 	$datos = mysqli_query($con, $sql);
 	if(mysqli_num_rows($datos) > 0){

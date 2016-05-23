@@ -66,9 +66,9 @@
                     <div class="ten wide column">
                         <!-- AQUI VA EL CONTINGUT QUE TENS DE LES DUES PESTANYES I VENTANA MODAL ETC... -->   
 						<div class="ui top attached tabular menu">
-							<a id="foro" class="item active">
+							<div id="foro" class="item active">
 								Temas Públicos
-							</a>
+							</div>
 							<div class="right menu">
 								<div class="item">
 									<div id="menNuevo" class="ui tema button"> Crear Tema nuevo</div><br/>

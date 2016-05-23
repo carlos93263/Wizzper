@@ -19,9 +19,25 @@
     while ($row = mysqli_fetch_array($result_pag_data,MYSQLI_ASSOC)){
         $htmlmsg=htmlentities($row['mess_matter']);
         if ($row['meco_read']!=1){
-            $msg .= "<div id=". $row['mess_id'] ." class='item'><div class='content'><div class='header'><i class='mail outline icon'></i>".$htmlmsg."</div>".$row['mess_dateText']." - ".$row['mess_timeText']."</div></div>";
+            $msg .= "<div id=". $row['mess_id'] ." class='item'>
+						<div id=". $row['mess_id'] ." class='content'>
+							<div class='header'>
+								<i class='mail outline icon'></i>
+								".$htmlmsg."
+							</div>
+							".$row['mess_dateText']." - ".$row['mess_timeText']."
+						</div>
+					</div>";
         } else {
-            $msg .= "<div id=". $row['mess_id'] ." class='item'><div class='content'><div class='header'><i class='mail icon'></i>".$htmlmsg."</div>".$row['mess_dateText']." - ".$row['mess_timeText']."</div></div>";
+            $msg .= "<div id=". $row['mess_id'] ." class='item'>
+						<div id=". $row['mess_id'] ." class='content'>
+							<div class='header'>
+								<i class='mail icon'></i>
+								".$htmlmsg."
+							</div>
+							".$row['mess_dateText']." - ".$row['mess_timeText']."
+						</div>
+					</div>";
         }
     }
 	$msg = $msg . "";
@@ -36,7 +52,15 @@
 				<div class='twelve wide stretched column'>
 					<div class='ui segment'>
 						<p id='missatges'>
+						<h3>No hay ningún mensaje seleccionado</h3>
 						</p>
+						<form action='#' method='get' class='ui tema form'>
+							<div class='required field'>
+								<label>Respuesta</label>
+								<textarea id='body' name='body'></textarea>
+							</div>
+							<div class='ui submit button'>Enviar</div>
+						</form>
 					</div>
 				</div>
 			</div>"; // Content for Data
