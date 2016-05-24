@@ -1,6 +1,8 @@
 <?php
 	//Recojemos id de cookies & session
 	include ("validacio.php");
+	$mensaje_tema = $_REQUEST['pthe_id'];
+	echo $mensaje_tema;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,7 +14,7 @@
         <!-- CARGAR JQUERY -->
         <script src="js/jquery-1.12.3.min.js" type="text/javascript"></script>
 		<!-- CARGAR JQUERY 2 -->
-        <!-- <script src="js/jquery.min.js" type="text/javascript"></script> -->
+        <script src="js/jquery.min.js" type="text/javascript"></script>
         <!-- CARGAR CSS SEMANTIC -->
         <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
         <!-- CARGAR JS SEMANTIC -->
@@ -66,7 +68,7 @@
                     <div class="ten wide column">
                         <!-- AQUI VA EL CONTINGUT QUE TENS DE LES DUES PESTANYES I VENTANA MODAL ETC... -->   
 						<div class="ui top attached tabular menu">
-							<div id="foro" class="item active">
+							<div class="item active">
 								Temas Públicos
 							</div>
 							<div class="right menu">
@@ -76,9 +78,7 @@
 							</div>
 						</div>
 						<div class="ui bottom attached segment">
-							<?php
-							include ("generosTemasPublicos.php");
-							?>
+							
 						</div>
                     </div>
                     <div class="four wide column">

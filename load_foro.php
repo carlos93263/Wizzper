@@ -21,7 +21,8 @@
 
     while ($row = mysqli_fetch_array($result_pag_data,MYSQLI_ASSOC)){
         $htmlmsg=htmlentities($row['pthe_matter']);
-        $msg .= "<tr><td class='collapsing'><i class='user icon'></i>". utf8_encode($row['user_nickname']) ."</td><td>". utf8_encode($row['pthe_matter']) ."</td><td class='right aligned collapsing'>". $row['pthe_dateText']." - ".$row['pthe_timeText']."</td></tr>";
+        /*onclick='location.href='mostrarTemaPublico.php?pthe_id=".$row['pthe_id']."'*/
+        $msg .= "<tr><td class='collapsing'><i class='user icon'></i>". utf8_encode($row['user_nickname']) ."</td><td><a class='orange item' href='mostrarTemaPublico.php?pthe_id=".$row['pthe_id']."'>". utf8_encode($row['pthe_matter']) ."</a></td><td class='right aligned collapsing'>". $row['pthe_dateText']." - ".$row['pthe_timeText']."</td></tr>";
     }
 
 	$msg = $msg . "";
