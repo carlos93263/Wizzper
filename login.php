@@ -22,7 +22,11 @@
     <body>
         <div class="ui equal width center aligned padded grid">
             <div class="row">
-                <div class="column">FILA SUPERIOR, PARA PONER INFORMACION DE LA PAGINA BONITA.</div>
+                <div class="column">
+                    <div class="ui basic segment">
+                        <img class="ui centered medium image" src="media/logo/loguito.png">
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="column">

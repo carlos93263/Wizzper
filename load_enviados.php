@@ -21,9 +21,9 @@ include ("validacio.php");
     while ($row = mysqli_fetch_array($result_pag_data,MYSQLI_ASSOC)){
         $htmlmsg=htmlentities($row['mess_matter']);
         if ($row['meco_read']!=1){
-            $msg .= "<div id=". $row['mess_id'] ." class='item'><div class='content'><div class='header'><i class='mail outline icon'></i>".$htmlmsg."</div>".$row['mess_dateText']." - ".$row['mess_timeText']."</div></div>";
+            $msg .= "<div id=". $row['mess_id'] ." class='item'><div class='content'><div class='header'><i class='file text outline icon'></i>".$htmlmsg."</div>".$row['mess_dateText']." - ".$row['mess_timeText']."</div></div>";
         } else {
-            $msg .= "<div id=". $row['mess_id'] ." class='item'><div class='content'><div class='header'><i class='mail icon'></i>".$htmlmsg."</div>".$row['mess_dateText']." - ".$row['mess_timeText']."</div></div>";
+            $msg .= "<div id=". $row['mess_id'] ." class='item'><div class='content'><div class='header'><i class='mail outline icon'></i>".$htmlmsg."</div>".$row['mess_dateText']." - ".$row['mess_timeText']."</div></div>";
         }
     }
 	$msg = $msg . "";
