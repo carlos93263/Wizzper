@@ -1,4 +1,5 @@
 <?php
+include ("validacio.php");
 //if($_POST['page']){
     $page = $_POST['page'];
     $cur_page = $page;
@@ -12,8 +13,9 @@
     
     include ("conexion.php");
     
-    $query_pag_data = "SELECT DISTINCT tbl_message.mess_id, tbl_message.mess_matter, tbl_message.mess_dateText, tbl_message.mess_timeText, tbl_messConver.meco_read from tbl_message inner join tbl_messUser on tbl_message.mess_id=tbl_messUser.mess_id inner join tbl_messConver on tbl_messUser.meus_id=tbl_messConver.meus_id Where tbl_message.user_id='6' LIMIT $start, $per_page";
+    $query_pag_data = "SELECT DISTINCT tbl_message.mess_id, tbl_message.mess_matter, tbl_message.mess_dateText, tbl_message.mess_timeText, tbl_messConver.meco_read from tbl_message inner join tbl_messUser on tbl_message.mess_id=tbl_messUser.mess_id inner join tbl_messConver on tbl_messUser.meus_id=tbl_messConver.meus_id Where tbl_message.user_id='$_SESSION[wizzperid]' LIMIT $start, $per_page";
     $result_pag_data = mysqli_query($con,$query_pag_data);
+
     $msg = "";
 
     while ($row = mysqli_fetch_array($result_pag_data,MYSQLI_ASSOC)){

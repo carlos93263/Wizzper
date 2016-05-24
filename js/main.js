@@ -12,14 +12,12 @@ $(document).ready(function(){
 			document.getElementById("mMenu1").className="item active";
 			document.getElementById("mMenu2").className="item";
 			loadRecibidos(1);
-
 	    });
 		//CAMBIAR A LA SEGUNDA PESTAÑA DEL MENU PRINCIPAL
 		$('#mMenu2').click(function(){
 			document.getElementById("mMenu1").className="item";
 			document.getElementById("mMenu2").className="item active";
 			loadEnviados(1);
-
 		});
 	//ABRIR VENTANA MODAL
 	$('.mensaje.button').click(function(){
@@ -361,6 +359,7 @@ $(document).ready(function(){
 			loadforo(page, tema);
 		}
 	});
+	
 	$(document).on("click","div.content", function(){
 		alert("hola");
 		if($("#mMenu1").hasClass("item active")){

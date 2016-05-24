@@ -61,12 +61,12 @@
                     <div class="ten wide column">
                         <!-- AQUI VA EL CONTINGUT QUE TENS DE LES DUES PESTANYES I VENTANA MODAL ETC... -->   
 						<div class="ui top attached tabular menu">
-							<a id="mMenu1" class="item active">
+							<div id="mMenu1" class="item active">
 								Mensajes Recibidos
-							</a>
-							<a id="mMenu2" class="item">
+							</div>
+							<div id="mMenu2" class="item">
 								Mensajes Enviados
-							</a>
+							</div>
 							<div class="right menu">
 								<div class="item">
 									<div id="menNuevo" class="ui mensaje button"> Crear Mensaje nuevo</div><br/>
