@@ -346,6 +346,34 @@ $(document).ready(function(){
 			}
 		});
 	}
+	function cargarRecibidos(missatge){
+		$.ajax({
+			type: "POST",
+			url: "carga_recibidos.php",
+			data: "missatge="+missatge,
+			success: function(msg)
+			{
+				$(document).ajaxComplete(function(event, request, settings)
+				{
+					$("#missatges").html(msg);
+				});
+			}	
+		});
+	}
+	function cargarRecibidosMensaje(missatge){
+		$.ajax({
+			type: "POST",
+			url: "carga_recibidos.php",
+			data: "missatge="+missatge,
+			success: function(msg)
+			{
+				$(document).ajaxComplete(function(event, request, settings)
+				{
+					$("#missatges").html(msg);
+				});
+			}	
+		});
+	}
 	$(document).on("click","a.item", function(){
 		if($("#mMenu1").hasClass("item active")){
 			var page = $(this).attr('p');
@@ -366,7 +394,8 @@ $(document).ready(function(){
 			alert("hola1");
 			var missatge = $(this).attr('id');
 			alert(missatge);
-			cargarRecibidos(missatge);
+			document.getElementById("missatges").value = "";
+			cargarRecibidosMensaje(missatge);
 			
 		} else {
 			var missatge = $(this).attr('id');

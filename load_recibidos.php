@@ -13,13 +13,13 @@ include ("validacio.php");
 	
     include ("conexion.php");
     
-    $query_pag_data = "SELECT DISTINCT tbl_message.mess_id, tbl_message.mess_matter, tbl_message.mess_dateText, tbl_message.mess_timeText, tbl_messConver.meco_read FROM tbl_message INNER JOIN tbl_messUser ON tbl_message.mess_id=tbl_messUser.mess_id INNER JOIN tbl_messConver ON tbl_messUser.meus_id=tbl_messConver.meus_id Where tbl_messUser.user_id='$_SESSION[wizzperid]' LIMIT $start, $per_page";
+    $query_pag_data = "SELECT DISTINCT tbl_message.mess_id, tbl_message.mess_matter, tbl_message.mess_dateText, tbl_message.mess_timeText, tbl_message.mess_read FROM tbl_message INNER JOIN tbl_messUser ON tbl_message.meus_id=tbl_messUser.meus_id Where tbl_messUser.user_id2='$_SESSION[wizzperid]' LIMIT $start, $per_page";
     $result_pag_data = mysqli_query($con,$query_pag_data);
     $msg = "";
 
     while ($row = mysqli_fetch_array($result_pag_data,MYSQLI_ASSOC)){
         $htmlmsg=htmlentities($row['mess_matter']);
-        if ($row['meco_read']!=1){
+        if ($row['mess_read']!=1){
             $msg .= "<div id=". $row['mess_id'] ." class='item'>
 						<div id=". $row['mess_id'] ." class='content'>
 							<div class='header'>
@@ -52,9 +52,9 @@ include ("validacio.php");
 				</div>
 				<div class='twelve wide stretched column'>
 					<div class='ui segment'>
-						<p id='missatges'>
-						<h3>No hay ningún mensaje seleccionado</h3>
-						</p>
+						<div id='missatges'>
+							<h3 id='noMensaje'>No hay ningún mensaje seleccionado</h3>
+						</div>
 						<form action='#' method='get' class='ui tema form'>
 							<div class='required field'>
 								<label>Respuesta</label>

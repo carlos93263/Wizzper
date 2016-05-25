@@ -211,7 +211,9 @@ USE `bd_whisperinlight`;
 		`mess_matter` varchar(50) NULL,
 		`mess_textBody` text NULL,
 		`mess_dateText` date NULL,
-		`mess_timeText` time NULL
+		`mess_timeText` time NULL,
+		`mess_read` boolean default true NULL
+
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 	/*  Canvi a Primari Key */
 			ALTER TABLE `tbl_message`
@@ -222,16 +224,28 @@ USE `bd_whisperinlight`;
 	/*  Creació de les FK */
 			ALTER TABLE `tbl_message`
 			ADD user_id int(11) NULL;
+			ALTER TABLE `tbl_message`
+			ADD meus_id int(11) NULL;
 	/* Inserts taula message */
-	INSERT INTO `tbl_message` (`mess_id`, `mess_matter`, `mess_textBody`, `mess_dateText`, `mess_timeText`, `user_id`) VALUES
-	(1, "Amistad1", "cos missatge 1", '2016-04-11', '10:34:09', 5),
-	(2, "Amistad2", "cos missatge 2", '2016-05-06', '10:34:09', 5),
-	(3, "Amistad3", "cos missatge 3", '2016-05-11', '10:34:09', 5),
-	(4, "Amistad4", "cos missatge 4", '2016-05-15', '10:34:09', 5),
-	(5, "Amistad5", "cos missatge 5", '2016-05-18', '10:34:09', 6),
-	(6, "Amistad6", "cos missatge 6", '2016-05-21', '10:34:09', 6),
-	(7, "Amistad7", "cos missatge 7", '2016-06-11', '10:34:09', 6),
-	(8, "Amistad8", "cos missatge 8", '2016-06-15', '10:34:09', 6);
+	INSERT INTO `tbl_message` (`mess_id`, `mess_matter`, `mess_textBody`, `mess_dateText`, `mess_timeText`, `user_id`, `meus_id`) VALUES
+	(1, "Amistad1", "cos missatge 1", '2016-04-11', '10:34:09', 5, 1),
+	(2, "Amistad2", "cos missatge 2", '2016-05-06', '10:34:09', 5, 2),
+	(3, "Amistad3", "cos missatge 3", '2016-05-11', '10:34:09', 5, 3),
+	(4, "Amistad4", "cos missatge 4", '2016-05-15', '10:34:09', 5, 4),
+	(5, "Amistad5", "cos missatge 5", '2016-05-18', '10:34:09', 6, 5),
+	(6, "Amistad6", "cos missatge 6", '2016-05-21', '10:34:09', 6, 6),
+	(7, "Amistad7", "cos missatge 7", '2016-06-11', '10:34:09', 6, 7),
+	(8, "Amistad8", "cos missatge 8", '2016-06-15', '10:34:09', 6, 8),
+	(9, "RE:Amistad1", "Resposta 1", '2016-05-06', '10:34:09', 5, 1),
+	(10, "RE:Amistad2", "Resposta 2", '2016-05-11', '10:34:09', 5, 2),
+	(11, "RE:Amistad3", "Resposta 3", '2016-05-15', '10:34:09', 5, 3),
+	(12, "RE:Amistad4", "Resposta 4", '2016-05-18', '10:34:09', 6, 4),
+	(13, "RE:Amistad5", "Resposta 5", '2016-05-21', '10:34:09', 6, 5),
+	(14, "RE:Amistad6", "Resposta 6", '2016-06-11', '10:34:09', 6, 6),
+	(15, "RE:Amistad7", "Resposta 7", '2016-06-15', '10:34:09', 6, 7),
+	(16, "RE:Amistad8", "Resposta 8", '2016-06-16', '10:34:09', 5, 8),
+	(17, "RE:Amistad1", "Resposta 9", '2016-06-17', '10:34:09', 6, 1),
+	(18, "RE:Amistad2", "Resposta 10", '2016-06-18', '10:34:09', 6, 2);
 			
 --
 -- Estructura de la taula `tbl_messUser`
@@ -247,55 +261,22 @@ USE `bd_whisperinlight`;
 			MODIFY `meus_id` int(11) NOT NULL AUTO_INCREMENT;	
 	/*  Creació de les FK */
 			ALTER TABLE `tbl_messUser`
-			ADD user_id int(11) NULL;
+			ADD user_id1 int(11) NULL;
 			ALTER TABLE `tbl_messUser`
-			ADD mess_id int(11) NULL;
+			ADD user_id2 int(11) NULL;
 	/* Inserts taula tbl_messUser */
-	INSERT INTO `tbl_messUser` (`meus_id`, `user_id`, `mess_id`) VALUES
-	(1, 6, 1),
-	(2, 6, 2),
-	(3, 4, 2),
-	(4, 6, 3),
-	(5, 6, 4),
+	INSERT INTO `tbl_messUser` (`meus_id`, `user_id1`, `user_id2`) VALUES
+	(1, 6, 5),
+	(2, 6, 5),
+	(3, 5, 6),
+	(4, 6, 5),
+	(5, 6, 5),
 	(6, 5, 5),
 	(7, 5, 6),
-	(8, 5, 7),
-	(9, 4, 7),
-	(10, 5, 8);
+	(8, 5, 6),
+	(9, 5, 6),
+	(10, 5, 6);
 	
---
--- Estructura de la taula `tbl_messConver`
---
-	CREATE TABLE IF NOT EXISTS `tbl_messConver` (
-		`meco_id` int(11) NOT NULL,
-		`meco_textBody` text NULL,
-		`meco_dateText` date NULL,
-		`meco_timeText` time NULL,
-		`meco_read` boolean default true NULL
-	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-	/*  Canvi a Primari Key */
-			ALTER TABLE `tbl_messConver`
-			ADD CONSTRAINT PRIMARY KEY (meco_id);
-	/*  Canvi a autoincremental*/
-			ALTER TABLE `tbl_messConver`
-			MODIFY `meco_id` int(11) NOT NULL AUTO_INCREMENT;	
-	/*  Creació de les FK */
-			ALTER TABLE `tbl_messConver`
-			ADD user_id int(11) NULL;
-			ALTER TABLE `tbl_messConver`
-			ADD meus_id int(11) NULL;
-	/* Inserts taula tbl_messConver */
-	INSERT INTO `tbl_messConver` (`meco_id`, `meco_textBody`, `meco_dateText`, `meco_timeText`, `user_id`, `meus_id`) VALUES
-	(1, "Resposta 1", '2016-05-06', '10:34:09', 6, 1),
-	(2, "Resposta 2", '2016-05-11', '10:34:09', 6, 2),
-	(3, "Resposta 3", '2016-05-15', '10:34:09', 6, 2),
-	(4, "Resposta 4", '2016-05-18', '10:34:09', 6, 3),
-	(5, "Resposta 5", '2016-05-21', '10:34:09', 6, 4),
-	(6, "Resposta 6", '2016-06-11', '10:34:09', 6, 5),
-	(7, "Resposta 7", '2016-06-15', '10:34:09', 6, 6),
-	(8, "Resposta 8", '2016-06-16', '10:34:09', 6, 7),
-	(9, "Resposta 9", '2016-06-17', '10:34:09', 6, 7),
-	(10, "Resposta 10", '2016-06-18', '10:34:09', 6, 8);
 	
 --
 -- Estructura de la taula `tbl_relationship`
@@ -352,21 +333,6 @@ USE `bd_whisperinlight`;
 	ADD CONSTRAINT FOREIGN KEY (user_id)
 	REFERENCES `tbl_user` (user_id);
 	
--- PK tbl_user FK tbl_message 
-	ALTER TABLE `tbl_message`
-	ADD CONSTRAINT FOREIGN KEY (user_id)
-	REFERENCES `tbl_user` (user_id);
-	
--- PK tbl_user FK tbl_messUser 
-	ALTER TABLE `tbl_messUser`
-	ADD CONSTRAINT FOREIGN KEY (user_id)
-	REFERENCES `tbl_user` (user_id);
-
--- PK tbl_user FK tbl_messConver 
-	ALTER TABLE `tbl_messConver`
-	ADD CONSTRAINT FOREIGN KEY (user_id)
-	REFERENCES `tbl_user` (user_id);
-	
 -- PK tbl_categories FK tbl_publicThems 
 	ALTER TABLE `tbl_publicThems`
 	ADD CONSTRAINT FOREIGN KEY (cate_id)
@@ -397,12 +363,22 @@ USE `bd_whisperinlight`;
 	ADD CONSTRAINT FOREIGN KEY (user_id2)
 	REFERENCES `tbl_user` (user_id);
 
--- PK tbl_messUser FK tbl_messConver 
-	ALTER TABLE `tbl_messConver`
+	-- PK tbl_user FK tbl_messUser 
+	ALTER TABLE `tbl_messUser`
+	ADD CONSTRAINT FOREIGN KEY (user_id1)
+	REFERENCES `tbl_user` (user_id);
+	
+-- PK tbl_user FK tbl_messUser 
+	ALTER TABLE `tbl_messUser`
+	ADD CONSTRAINT FOREIGN KEY (user_id2)
+	REFERENCES `tbl_user` (user_id);
+	
+-- PK tbl_messUser FK tbl_message 
+	ALTER TABLE `tbl_message`
 	ADD CONSTRAINT FOREIGN KEY (meus_id)
 	REFERENCES `tbl_messUser` (meus_id);
 	
--- PK tbl_message FK tbl_messUser 
-	ALTER TABLE `tbl_messUser`
-	ADD CONSTRAINT FOREIGN KEY (mess_id)
-	REFERENCES `tbl_message` (mess_id);
+-- PK tbl_user FK tbl_message 
+	ALTER TABLE `tbl_message`
+	ADD CONSTRAINT FOREIGN KEY (user_id)
+	REFERENCES `tbl_user` (user_id);
