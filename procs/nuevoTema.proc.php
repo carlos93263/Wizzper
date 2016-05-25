@@ -21,7 +21,7 @@
 	echo $categoria;
 	//Lanzamiento de la consulta
 	$sql = "INSERT INTO `tbl_publicthems`(`pthe_matter`, `pthe_textBody`, `pthe_dateText`, `pthe_timeText`,  `pthe_ProfesionalArticle`, `user_id`, `cate_id`) VALUES ('$matter', '$body', '$data', '$hora', '$pro','$user','$categoria')";
-	echo $sql;
+	//echo $sql;
 	$datos = mysqli_query($con, $sql);
 	if (mysqli_affected_rows($con) == 1){
 		$_SESSION['temanuevo'] = "El tema se ha creado correctamente";

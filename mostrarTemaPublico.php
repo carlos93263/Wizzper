@@ -65,6 +65,7 @@
 			<div class="four column row">
 				<div class="one wide column"></div>
                 <div class="ten wide column">
+                <button class="ui orange button" type="button" onclick="location='temasPublicos.php'">Atrás</button>
                     <!-- AQUI VA EL CONTINGUT QUE TENS DE LES DUES PESTANYES I VENTANA MODAL ETC... -->   
 					<div class="ui top attached tabular menu">
 						<div class="item active">
@@ -72,6 +73,7 @@
 						</div>
 					</div>
 					<div class="ui bottom attached segment">
+
 						<?php
 							$msg = "";
 							$sql = "SELECT tbl_publicthems.pthe_id, tbl_publicthems.pthe_matter, tbl_publicthems.pthe_textBody, tbl_publicthems.pthe_dateText, tbl_publicthems.pthe_timeText, tbl_user.user_nickname, tbl_user.user_avatar from tbl_publicthems inner join tbl_user on tbl_publicthems.user_id=tbl_user.user_id WHERE pthe_id='$mensaje_tema'";
@@ -93,13 +95,6 @@
 												<br/>
 												<div class='extra'>
 													<div class='ui orange label'>".$send['pthe_dateText']." - ".$send['pthe_timeText']."</div>
-													
-													<div class='ui orange right floated icon button'>
-														<i class='thumbs outline up icon icon'></i>
-													</div>
-													<a class='ui right floated basic orange left pointing label'>
-														14
-													</a>
 												</div>
 											</div>
 										</div>";
@@ -124,10 +119,10 @@
 												<br/>
 												<div class='extra'>
 													<div class='ui orange label'>".$send2['cpth_dateText']." - ".$send2['cpth_timeText']."</div>
-													<div class='ui right floated tiny red button'>
-    													<i class='heart icon'></i> Like
-  													</div>
-													<a class='ui right floated basic red left pointing label'>
+													<div class='ui orange right floated icon button'>
+														<i class='thumbs outline up icon icon'></i>
+													</div>
+													<a class='ui right floated basic orange left pointing label'>
 														14
 													</a>
 												</div>
@@ -139,8 +134,16 @@
 						?>
 						<div class="ui divided items">
 							<?php echo $msg ?>
-								
 						</div>
+						<form class="ui form" action="procs/insertarComentario.proc.php" method="POST">
+							<input type="hidden" name="id_tema" value="<?php echo $mensaje_tema ?>">
+							<div class="required field">
+								
+								<label>Escribir una respuesta:</label>
+								<textarea id="cuerpoComentario" name="cuerpoComentario"></textarea>
+							</div>
+							<button class="ui button" type="submit">Responder</button>
+						</form>
 					</div>
                 </div>
                 <div class="four wide column">
