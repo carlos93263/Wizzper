@@ -1,20 +1,20 @@
 <?php
 	//Recojemos id de cookies & session
 	include ("validacio.php");
+	include ("conexion.php");
 	$mensaje_tema = $_REQUEST['pthe_id'];
-	echo $mensaje_tema;
 ?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="utf-8" />
-        <title>Plantilla HTML de Wizzper</title>
+        <title>Mostrar tema</title>
         <!-- CARGAR MI CSS -->
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <!-- CARGAR JQUERY -->
         <script src="js/jquery-1.12.3.min.js" type="text/javascript"></script>
 		<!-- CARGAR JQUERY 2 -->
-        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <!-- <script src="js/jquery.min.js" type="text/javascript"></script> -->
         <!-- CARGAR CSS SEMANTIC -->
         <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
         <!-- CARGAR JS SEMANTIC -->
@@ -55,94 +55,99 @@
         </header>
         <!-- FIN DE MENU -->
 		<!-- INICIO CUERPO -->
-    		<div class="ui vertically divided stackable grid" id="grid_cuerpo">
-                <?php
-					if(isset($_SESSION['temanuevo'])&& $_SESSION['temanuevo'] != ""){
-						echo "<h2>".$_SESSION['temanuevo']."</h2>";
-						$_SESSION['temanuevo'] = "";
-					}
-				?>
-				<div class="four column row">
-					<div class="one wide column">
+		<div class="ui vertically divided stackable grid" id="grid_cuerpo">
+        <?php
+			if(isset($_SESSION['temanuevo'])&& $_SESSION['temanuevo'] != ""){
+				echo "<h2>".$_SESSION['temanuevo']."</h2>";
+				$_SESSION['temanuevo'] = "";
+			}
+		?>
+			<div class="four column row">
+				<div class="one wide column"></div>
+                <div class="ten wide column">
+                    <!-- AQUI VA EL CONTINGUT QUE TENS DE LES DUES PESTANYES I VENTANA MODAL ETC... -->   
+					<div class="ui top attached tabular menu">
+						<div class="item active">
+							Temas Públicos
+						</div>
 					</div>
-                    <div class="ten wide column">
-                        <!-- AQUI VA EL CONTINGUT QUE TENS DE LES DUES PESTANYES I VENTANA MODAL ETC... -->   
-						<div class="ui top attached tabular menu">
-							<div class="item active">
-								Temas Públicos
-							</div>
-							<div class="right menu">
-								<div class="item">
-									<div id="menNuevo" class="ui tema button"> Crear Tema nuevo</div><br/>
-								</div>
-							</div>
-						</div>
-						<div class="ui bottom attached segment">
-							
-						</div>
-                    </div>
-                    <div class="four wide column">
-                        <!-- AQUI ANIRAN TOTS ELS ANUNCIS I ETC... QUE VOLGUEM CARREGAR -->
-                    </div>
-					<div class="one wide column">
-					</div>
-				</div>
-            </div>	
-		<!-- VENTANA MODAL-->
-		<div class="ui tema modal">
-			<i class="close icon"></i>
-			<div class="header">
-				Crear Tema Nuevo
-			</div>
-			<br/>
-			<form action="procs/nuevoTema.proc.php" method="get" class="ui tema form">
-				<div class="required field">
-					<label> Titulo del Tema</label>
-					<input id="matter" name="matter" type="text">
-				</div>
-				<div class="required field">
-					<label> Cuerpo del tema</label>
-					<textarea id="body" name="body"></textarea>
-				</div>
-				
-				<div class="ui vertically divided stackable grid" >
-					<div class="two column row">
-						<div class="eight wide column">
-							<div class="required field">
-								<select name="categoria" class="ui search dropdown">
-									<option value="">Seleccione una Categoria</option>
-									<option value="1">Amistad</option>
-									<option value="2">Amor</option>
-									<option value="3">Dinero</option>
-									<option value="4">Estudios</option>
-									<option value="5">Familia</option>
-									<option value="6">Salud</option>
-									<option value="7">Trabajo</option>
-									<option value="8">Varios</option>
-								</select>
-							</div>
-						</div>
+					<div class="ui bottom attached segment">
 						<?php
-							if($_SESSION['wizzperkous']==2){
-						?>
-						<div class="eight wide column">
-							<div class="required field">
-								<select name="pro" class="ui search dropdown">
-									<option value="">Tipo de Artículo</option>
-									<option value="1">Consulta/Necesito Ayuda</option>
-									<option value="2">Articulo Profesional/Recomendaciones</option>
-								</select>
-							</div>
-						</div>
-						<?php
+							$msg = "";
+							$sql = "SELECT tbl_publicthems.pthe_id, tbl_publicthems.pthe_matter, tbl_publicthems.pthe_textBody, tbl_publicthems.pthe_dateText, tbl_publicthems.pthe_timeText, tbl_user.user_nickname, tbl_user.user_avatar from tbl_publicthems inner join tbl_user on tbl_publicthems.user_id=tbl_user.user_id WHERE pthe_id='$mensaje_tema'";
+							/*echo $sql."<br/>";*/
+							$datos = mysqli_query($con,$sql);
+							while ($send = mysqli_fetch_array($datos)){
+								$msg.= "<div class='item'>
+											<div class='ui tiny circular image'>
+												<img src='media/img/".$send['user_avatar']."'>
+											</div>
+											<div class='content'>
+												<span class='header'>".$send['pthe_matter']."</span>
+												<div class='meta'>
+													<span class='cinema'>". $send['user_nickname']."</span>
+												</div>
+												<div class='description'>
+													<p>".$send['pthe_textBody']."</p>
+												</div>
+												<br/>
+												<div class='extra'>
+													<div class='ui orange label'>".$send['pthe_dateText']." - ".$send['pthe_timeText']."</div>
+													<div class='ui right floated tiny red button'>
+    													<i class='heart icon'></i> Like
+  													</div>
+													<a class='ui right floated basic red left pointing label'>
+														14
+													</a>
+												</div>
+											</div>
+										</div>";
+							}
+							$sql2 = "SELECT tbl_publicthems.pthe_matter, tbl_commentspublicthems.cpth_id, tbl_commentspublicthems.cpth_textBody, tbl_commentspublicthems.cpth_dateText, tbl_commentspublicthems.cpth_timeText, tbl_commentspublicthems.cpth_like, tbl_commentspublicthems.cpth_visible, tbl_commentspublicthems.user_id, tbl_commentspublicthems.pthe_id, tbl_user.user_nickname, tbl_user.user_avatar from tbl_commentspublicthems inner join tbl_user on tbl_commentspublicthems.user_id = tbl_user.user_id inner join tbl_publicthems on tbl_commentspublicthems.pthe_id=tbl_publicthems.pthe_id WHERE tbl_commentspublicthems.pthe_id='$mensaje_tema'";
+							/*echo $sql2;*/
+							$datos2 = mysqli_query($con,$sql2);
+							if (mysqli_num_rows($datos2) > 0){
+								while($send2 = mysqli_fetch_array($datos2)){
+									$msg.= "<div class='item'>
+											<div class='ui tiny circular image'>
+												<img src='media/img/".$send2['user_avatar']."'>
+											</div>
+											<div class='content'>
+												<span class='header'><i class='comments outline icon'></i>RE: ".$send2['pthe_matter']."</span>
+												<div class='meta'>
+													<span class='cinema'>". $send2['user_nickname']."</span>
+												</div>
+												<div class='description'>
+													<p>".$send2['cpth_textBody']."</p>
+												</div>
+												<br/>
+												<div class='extra'>
+													<div class='ui orange label'>".$send2['cpth_dateText']." - ".$send2['cpth_timeText']."</div>
+													<div class='ui right floated tiny red button'>
+    													<i class='heart icon'></i> Like
+  													</div>
+													<a class='ui right floated basic red left pointing label'>
+														14
+													</a>
+												</div>
+											</div>
+										</div>";
+								}
+							} else {
 							}
 						?>
+						<div class="ui divided items">
+							<?php echo $msg ?>
+								
+						</div>
 					</div>
-				</div>
-				
-				<div class="ui submit button">Enviar</div>
-			</form>
-		</div>
+                </div>
+                <div class="four wide column">
+                    <!-- AQUI ANIRAN TOTS ELS ANUNCIS I ETC... QUE VOLGUEM CARREGAR -->
+                </div>
+				<div class="one wide column"></div>
+			</div>
+        </div>
 		<!-- FIN CUERPO -->
     </body>
 </html>
