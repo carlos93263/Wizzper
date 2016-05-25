@@ -346,7 +346,7 @@ $(document).ready(function(){
 			}
 		});
 	}
-	function cargarRecibidos(missatge){
+	function cargarRecibidosMensaje(missatge){
 		$.ajax({
 			type: "POST",
 			url: "carga_recibidos.php",
@@ -360,10 +360,10 @@ $(document).ready(function(){
 			}	
 		});
 	}
-	function cargarRecibidosMensaje(missatge){
+	function cargarEnviadosMensaje(missatge){
 		$.ajax({
 			type: "POST",
-			url: "carga_recibidos.php",
+			url: "carga_enviados.php",
 			data: "missatge="+missatge,
 			success: function(msg)
 			{
@@ -389,17 +389,18 @@ $(document).ready(function(){
 	});
 	
 	$(document).on("click","div.content", function(){
-		alert("hola");
 		if($("#mMenu1").hasClass("item active")){
-			alert("hola1");
-			var missatge = $(this).attr('id');
-			alert(missatge);
-			document.getElementById("missatges").value = "";
-			cargarRecibidosMensaje(missatge);
-			
-		} else {
-			var missatge = $(this).attr('id');
-			cargarEnviados(missatge);
+			if($(this).attr('m')){
+				var missatge = $(this).attr('m');
+				document.getElementById("missatges").value = "";
+				cargarRecibidosMensaje(missatge);
+			}
+		} else if($("#mMenu2").hasClass("item active")){
+			if($(this).attr('m')){
+				var missatge = $(this).attr('m');
+				document.getElementById("missatges").value = "";
+				cargarEnviadosMensaje(missatge);
+			}
 		}
 	});
 });	

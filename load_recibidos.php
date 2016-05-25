@@ -4,7 +4,7 @@ include ("validacio.php");
     $page = $_POST['page'];
     $cur_page = $page;
     $page -= 1;
-    $per_page = 2;
+    $per_page = 10;
     $previous_btn = true;
     $next_btn = true;
     $first_btn = true;
@@ -13,15 +13,16 @@ include ("validacio.php");
 	
     include ("conexion.php");
     
-    $query_pag_data = "SELECT DISTINCT tbl_message.mess_id, tbl_message.mess_matter, tbl_message.mess_dateText, tbl_message.mess_timeText, tbl_message.mess_read FROM tbl_message INNER JOIN tbl_messUser ON tbl_message.meus_id=tbl_messUser.meus_id Where tbl_messUser.user_id2='$_SESSION[wizzperid]' LIMIT $start, $per_page";
+    $query_pag_data = "SELECT DISTINCT tbl_messUser.meus_id, tbl_message.mess_id, tbl_message.mess_matter, tbl_message.mess_dateText, tbl_message.mess_timeText, tbl_message.mess_read FROM tbl_message INNER JOIN tbl_messUser ON tbl_message.meus_id=tbl_messUser.meus_id Where tbl_messUser.user_id2='$_SESSION[wizzperid]' group by tbl_message.meus_id LIMIT $start, $per_page";
+	//echo $query_pag_data;
     $result_pag_data = mysqli_query($con,$query_pag_data);
     $msg = "";
 
     while ($row = mysqli_fetch_array($result_pag_data,MYSQLI_ASSOC)){
         $htmlmsg=htmlentities($row['mess_matter']);
         if ($row['mess_read']!=1){
-            $msg .= "<div id=". $row['mess_id'] ." class='item'>
-						<div id=". $row['mess_id'] ." class='content'>
+            $msg .= "<div id=". $row['meus_id'] ." class='item'>
+						<div m=". $row['meus_id'] ." id=". $row['meus_id'] ." class='content'>
 							<div class='header'>
 								<i class='file text outline icon'></i>
 								".$htmlmsg."
@@ -30,8 +31,8 @@ include ("validacio.php");
 						</div>
 					</div>";
         } else {
-            $msg .= "<div id=". $row['mess_id'] ." class='item'>
-						<div id=". $row['mess_id'] ." class='content'>
+            $msg .= "<div id=". $row['meus_id'] ." class='item'>
+						<div m=". $row['meus_id'] ." id=". $row['meus_id'] ." class='content'>
 							<div class='header'>
 								<i class='mail outline icon'></i>
 								".$htmlmsg."
@@ -55,13 +56,6 @@ include ("validacio.php");
 						<div id='missatges'>
 							<h3 id='noMensaje'>No hay ningún mensaje seleccionado</h3>
 						</div>
-						<form action='#' method='get' class='ui tema form'>
-							<div class='required field'>
-								<label>Respuesta</label>
-								<textarea id='body' name='body'></textarea>
-							</div>
-							<div class='ui submit button'>Enviar</div>
-						</form>
 					</div>
 				</div>
 			</div>"; // Content for Data

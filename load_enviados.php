@@ -4,7 +4,7 @@ include ("validacio.php");
     $page = $_POST['page'];
     $cur_page = $page;
     $page -= 1;
-    $per_page = 2;
+    $per_page = 10;
     $previous_btn = true;
     $next_btn = true;
     $first_btn = true;
@@ -13,8 +13,8 @@ include ("validacio.php");
     
     include ("conexion.php");
     
-    $query_pag_data = "SELECT DISTINCT tbl_message.mess_id, tbl_message.mess_matter, tbl_message.mess_dateText, tbl_message.mess_timeText, tbl_message.mess_read from tbl_message inner join tbl_messUser on tbl_message.meus_id=tbl_messUser.meus_id Where tbl_messUser.user_id1='$_SESSION[wizzperid]' LIMIT $start, $per_page";
-	echo $query_pag_data;	
+    $query_pag_data = "SELECT DISTINCT tbl_messUser.meus_id, tbl_message.mess_id, tbl_message.mess_matter, tbl_message.mess_dateText, tbl_message.mess_timeText, tbl_message.mess_read FROM tbl_message INNER JOIN tbl_messUser ON tbl_message.meus_id=tbl_messUser.meus_id Where tbl_messUser.user_id1='$_SESSION[wizzperid]' group by tbl_message.meus_id LIMIT $start, $per_page";
+	//echo $query_pag_data;	
     $result_pag_data = mysqli_query($con,$query_pag_data);
 
     $msg = "";
@@ -22,9 +22,25 @@ include ("validacio.php");
     while ($row = mysqli_fetch_array($result_pag_data,MYSQLI_ASSOC)){
         $htmlmsg=htmlentities($row['mess_matter']);
         if ($row['mess_read']!=1){
-            $msg .= "<div id=". $row['mess_id'] ." class='item'><div class='content'><div class='header'><i class='file text outline icon'></i>".$htmlmsg."</div>".$row['mess_dateText']." - ".$row['mess_timeText']."</div></div>";
+            $msg .= "<div id=". $row['mess_id'] ." class='item'>
+						<div  m=". $row['meus_id'] ." id=". $row['meus_id'] ." class='content'>
+							<div class='header'>
+								<i class='file text outline icon'></i>
+								".$htmlmsg."
+							</div>
+							".$row['mess_dateText']." - ".$row['mess_timeText']."
+						</div>
+					</div>";
         } else {
-            $msg .= "<div id=". $row['mess_id'] ." class='item'><div class='content'><div class='header'><i class='mail outline icon'></i>".$htmlmsg."</div>".$row['mess_dateText']." - ".$row['mess_timeText']."</div></div>";
+            $msg .= "<div id=". $row['mess_id'] ." class='item'>
+						<div  m=". $row['meus_id'] ." id=". $row['meus_id'] ." class='content'>
+							<div class='header'>
+								<i class='mail outline icon'></i>
+								".$htmlmsg."
+							</div>
+							".$row['mess_dateText']." - ".$row['mess_timeText']."
+						</div>
+					</div>";
         }
     }
 	$msg = $msg . "";
@@ -38,8 +54,9 @@ include ("validacio.php");
 				</div>
 				<div class='twelve wide stretched column'>
 					<div class='ui segment'>
-						<p id='missatges'>
-						</p>
+						<div id='missatges'>
+							<h3 id='noMensaje'>No hay ningún mensaje seleccionado</h3>
+						</div>
 					</div>
 				</div>
 			</div>"; // Content for Data
