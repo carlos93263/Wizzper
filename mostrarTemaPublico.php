@@ -93,10 +93,11 @@
 												<br/>
 												<div class='extra'>
 													<div class='ui orange label'>".$send['pthe_dateText']." - ".$send['pthe_timeText']."</div>
-													<div class='ui right floated tiny red button'>
-    													<i class='heart icon'></i> Like
-  													</div>
-													<a class='ui right floated basic red left pointing label'>
+													
+													<div class='ui orange right floated icon button'>
+														<i class='thumbs outline up icon icon'></i>
+													</div>
+													<a class='ui right floated basic orange left pointing label'>
 														14
 													</a>
 												</div>
