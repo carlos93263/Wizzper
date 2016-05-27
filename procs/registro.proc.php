@@ -15,7 +15,7 @@
 		$apellidos = utf8_decode($_REQUEST['apellidos']);
 		$birth = $_REQUEST['dateofbirth'];
 		//Lanzamiento de la consulta
-		$sql = "INSERT INTO `bd_whisperinlight`.`tbl_user` (`user_id`,`user_nickname`, `user_email`, `user_password`, `user_name`, `user_surname`, `user_dateofbirth`, `user_avatar`, `user_gender`, `user_response`, `user_notification`) VALUES (NULL, '$nickname', '$email', '$password', '$nombre', '$apellidos', '$birth', NULL, '$gender', 1, 1)";
+		$sql = "INSERT INTO `bd_whisperinlight`.`tbl_user` (`user_id`,`user_nickname`, `user_email`, `user_password`, `user_name`, `user_surname`, `user_dateofbirth`, `user_avatar`, `user_gender`, `user_response`, `user_notification`) VALUES (NULL, '$nickname', '$email', '$password', '$nombre', '$apellidos', '$birth', 'users_avatar.png', '$gender', 1, 1)";
 		$datos = mysqli_query($con,$sql);
 		if (mysqli_affected_rows($con) == 1){
 			$_SESSION['correcto_registro'] = "El usuario se ha creado correctamente, bienvenido a nuestra comunidad.";

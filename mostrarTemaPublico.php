@@ -3,6 +3,7 @@
 	include ("validacio.php");
 	include ("conexion.php");
 	$mensaje_tema = $_REQUEST['pthe_id'];
+	$id_usu=$_SESSION['wizzperid'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -76,11 +77,32 @@
 
 						<?php
 							$msg = "";
-							$sql = "SELECT tbl_publicthems.pthe_id, tbl_publicthems.pthe_matter, tbl_publicthems.pthe_textBody, tbl_publicthems.pthe_dateText, tbl_publicthems.pthe_timeText, tbl_user.user_nickname, tbl_user.user_avatar from tbl_publicthems inner join tbl_user on tbl_publicthems.user_id=tbl_user.user_id WHERE pthe_id='$mensaje_tema'";
-							echo $sql."<br/>";
+							$sql = "SELECT tbl_publicthems.pthe_id, tbl_publicthems.pthe_matter, tbl_publicthems.pthe_textBody, tbl_publicthems.pthe_dateText, tbl_publicthems.pthe_timeText, tbl_user.user_nickname, tbl_user.user_id, tbl_user.user_avatar from tbl_publicthems inner join tbl_user on tbl_publicthems.user_id=tbl_user.user_id WHERE pthe_id='$mensaje_tema'";
 							$datos = mysqli_query($con,$sql);
 							while ($send = mysqli_fetch_array($datos)){
-								$msg.= "<div class='item'>
+								if ($send['user_id'] == $id_usu){
+									$msg.= "<div class='item'>
+											<div class='ui tiny circular image'>
+												<img src='media/img/".$send['user_avatar']."'>
+											</div>
+											<div class='content'>
+												<span class='header'>".$send['pthe_matter']."</span>
+												<a class='ui right floated red basic label'>Elimnar Hilo</a>
+												<a class='ui right floated orange basic label'>Editar</a>
+												<div class='meta'>
+													<span class='cinema'>". $send['user_nickname']."</span>
+												</div>
+												<div class='description'>
+													<p>".$send['pthe_textBody']."</p>
+												</div>
+												<br/>
+												<div class='extra'>
+													<div class='ui orange label'>".$send['pthe_dateText']." - ".$send['pthe_timeText']."</div>
+												</div>
+											</div>
+										</div>";
+								}else{
+									$msg.= "<div class='item'>
 											<div class='ui tiny circular image'>
 												<img src='media/img/".$send['user_avatar']."'>
 											</div>
@@ -98,9 +120,11 @@
 												</div>
 											</div>
 										</div>";
+								}
+								
 							}
 							$sql2 = "SELECT tbl_publicthems.pthe_matter, tbl_commentspublicthems.cpth_id, tbl_commentspublicthems.cpth_textBody, tbl_commentspublicthems.cpth_dateText, tbl_commentspublicthems.cpth_timeText, tbl_commentspublicthems.cpth_like, tbl_commentspublicthems.cpth_visible, tbl_commentspublicthems.user_id, tbl_commentspublicthems.pthe_id, tbl_user.user_nickname, tbl_user.user_avatar from tbl_commentspublicthems inner join tbl_user on tbl_commentspublicthems.user_id = tbl_user.user_id inner join tbl_publicthems on tbl_commentspublicthems.pthe_id=tbl_publicthems.pthe_id WHERE tbl_commentspublicthems.pthe_id='$mensaje_tema'";
-							echo $sql2;
+							//echo $sql2;
 							$datos2 = mysqli_query($con,$sql2);
 							if (mysqli_num_rows($datos2) > 0){
 								while($send2 = mysqli_fetch_array($datos2)){
@@ -129,7 +153,6 @@
 											</div>
 										</div>";
 								}
-							} else {
 							}
 						?>
 						<div class="ui divided items">
