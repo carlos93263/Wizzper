@@ -10,3 +10,12 @@
 .tema.modal{
 	padding:1%;
 }
+.izquierda{
+	text-align: left;
+}
+.derecha{
+	text-align: right;
+}
+#enviarConstestacioMissatge{
+	float: left;
+}

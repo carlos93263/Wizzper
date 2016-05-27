@@ -77,7 +77,7 @@
 						<?php
 							$msg = "";
 							$sql = "SELECT tbl_publicthems.pthe_id, tbl_publicthems.pthe_matter, tbl_publicthems.pthe_textBody, tbl_publicthems.pthe_dateText, tbl_publicthems.pthe_timeText, tbl_user.user_nickname, tbl_user.user_avatar from tbl_publicthems inner join tbl_user on tbl_publicthems.user_id=tbl_user.user_id WHERE pthe_id='$mensaje_tema'";
-							/*echo $sql."<br/>";*/
+							echo $sql."<br/>";
 							$datos = mysqli_query($con,$sql);
 							while ($send = mysqli_fetch_array($datos)){
 								$msg.= "<div class='item'>
@@ -100,7 +100,7 @@
 										</div>";
 							}
 							$sql2 = "SELECT tbl_publicthems.pthe_matter, tbl_commentspublicthems.cpth_id, tbl_commentspublicthems.cpth_textBody, tbl_commentspublicthems.cpth_dateText, tbl_commentspublicthems.cpth_timeText, tbl_commentspublicthems.cpth_like, tbl_commentspublicthems.cpth_visible, tbl_commentspublicthems.user_id, tbl_commentspublicthems.pthe_id, tbl_user.user_nickname, tbl_user.user_avatar from tbl_commentspublicthems inner join tbl_user on tbl_commentspublicthems.user_id = tbl_user.user_id inner join tbl_publicthems on tbl_commentspublicthems.pthe_id=tbl_publicthems.pthe_id WHERE tbl_commentspublicthems.pthe_id='$mensaje_tema'";
-							/*echo $sql2;*/
+							echo $sql2;
 							$datos2 = mysqli_query($con,$sql2);
 							if (mysqli_num_rows($datos2) > 0){
 								while($send2 = mysqli_fetch_array($datos2)){

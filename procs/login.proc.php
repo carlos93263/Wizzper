@@ -16,12 +16,6 @@
 				$_SESSION['wizzperpass']= $send['user_password'];
 				$_SESSION['wizzperkous']= $send['kous_id'];
 				$_SESSION['wizzpernick']= $send['user_nickname'];
-			/*	echo $send['user_email']."<br>";
-				echo $send['user_id']."<br>";
-				echo $send['user_password']."<br>";
-				echo $send['kous_id']."<br>";
-				echo $send['user_nickname']."<br>";
-				*/
 				
 				setcookie("wizzper", $send["user_nickname"], time()+60*60*24*30, "/");//30 dies de vida de la cookie
 				

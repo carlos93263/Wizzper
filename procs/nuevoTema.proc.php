@@ -18,7 +18,7 @@
 	$hora = date("H") . ":" . date("i") . ":" . date("s");
 	$user = $_SESSION['wizzperid'];
 	$categoria = $_REQUEST['categoria'];
-	echo $categoria;
+	//echo $categoria;
 	//Lanzamiento de la consulta
 	$sql = "INSERT INTO `tbl_publicthems`(`pthe_matter`, `pthe_textBody`, `pthe_dateText`, `pthe_timeText`,  `pthe_ProfesionalArticle`, `user_id`, `cate_id`) VALUES ('$matter', '$body', '$data', '$hora', '$pro','$user','$categoria')";
 	//echo $sql;
