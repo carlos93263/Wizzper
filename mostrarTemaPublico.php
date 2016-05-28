@@ -2,7 +2,12 @@
 	//Recojemos id de cookies & session
 	include ("validacio.php");
 	include ("conexion.php");
-	$mensaje_tema = $_REQUEST['pthe_id'];
+	if((isset($_REQUEST['pthe_id'])) && ($_REQUEST['pthe_id']!="") && (!empty($_REQUEST['pthe_id']))){
+		$mensaje_tema = $_REQUEST['pthe_id'];
+	} else {
+		header("Location: temasPublicos.php");
+	}
+	
 	$id_usu=$_SESSION['wizzperid'];
 ?>
 <!DOCTYPE html>
@@ -76,6 +81,7 @@
 					<div class="ui bottom attached segment">
 
 						<?php
+							$onclick = 'return confirm("Estas seguro de eliminar este hilo?") && confirm("Estas realmente seguro de eliminar el hilo? No habrá vuelta atrás.");';
 							$msg = "";
 							$sql = "SELECT tbl_publicthems.pthe_id, tbl_publicthems.pthe_matter, tbl_publicthems.pthe_textBody, tbl_publicthems.pthe_dateText, tbl_publicthems.pthe_timeText, tbl_user.user_nickname, tbl_user.user_id, tbl_user.user_avatar from tbl_publicthems inner join tbl_user on tbl_publicthems.user_id=tbl_user.user_id WHERE pthe_id='$mensaje_tema'";
 							$datos = mysqli_query($con,$sql);
@@ -87,7 +93,7 @@
 											</div>
 											<div class='content'>
 												<span class='header'>".$send['pthe_matter']."</span>
-												<a class='ui right floated red basic label'>Elimnar Hilo</a>
+												<a href='procs/eliminarhilo.proc.php?pthe_id=".$mensaje_tema."' class='ui right floated red basic label' onClick='".$onclick."'>Elimnar Hilo</a>
 												<a class='ui right floated orange basic label'>Editar</a>
 												<div class='meta'>
 													<span class='cinema'>". $send['user_nickname']."</span>
