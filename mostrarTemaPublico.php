@@ -9,6 +9,8 @@
 	}
 	
 	$id_usu=$_SESSION['wizzperid'];
+	
+	
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,6 +31,11 @@
         <script src="js/main.js" type="text/javascript"></script>
     </head>
     <body>
+    	<?php
+    	$sqlito="SELECT * FROM tbl_publicthems WHERE tbl_publicthems.pthe_id='$mensaje_tema' AND tbl_publicthems.pthe_closed!='1'";
+		$datitos=mysqli_query($con,$sqlito);
+    	if (mysqli_num_rows($datitos) > 0){
+    	?>
     	<!-- INICIO MENU -->
 		<header>
             <nav class="ui stackable menu">
@@ -153,7 +160,7 @@
 														<i class='thumbs outline up icon icon'></i>
 													</div>
 													<a class='ui right floated basic orange left pointing label'>
-														14
+														69
 													</a>
 												</div>
 											</div>
@@ -182,5 +189,10 @@
 			</div>
         </div>
 		<!-- FIN CUERPO -->
+		<?php
+		}else{
+			header("Location: temasPublicos.php");	
+		}
+    	?>
     </body>
 </html>

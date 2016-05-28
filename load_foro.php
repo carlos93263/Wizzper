@@ -15,7 +15,7 @@
     $start = $page * $per_page;
     include ("conexion.php");
 
-    $query_pag_data = "SELECT DISTINCT tbl_publicThems.user_id, tbl_user.user_nickname, tbl_publicThems.pthe_id, tbl_publicThems.pthe_matter, tbl_publicThems.pthe_dateText, tbl_publicThems.pthe_timeText, tbl_publicThems.pthe_closed, tbl_publicThems.pthe_ProfesionalArticle from tbl_publicThems inner join tbl_categories on tbl_publicThems.cate_id=tbl_categories.cate_id inner join tbl_user on tbl_publicthems.user_id=tbl_user.user_id Where tbl_categories.cate_name='Amistad' AND tbl_publicThems.pthe_closed!='1' LIMIT $start, $per_page";
+    $query_pag_data = "SELECT DISTINCT tbl_publicThems.user_id, tbl_user.user_nickname, tbl_publicThems.pthe_id, tbl_publicThems.pthe_matter, tbl_publicThems.pthe_dateText, tbl_publicThems.pthe_timeText, tbl_publicThems.pthe_closed, tbl_publicThems.pthe_ProfesionalArticle from tbl_publicThems inner join tbl_categories on tbl_publicThems.cate_id=tbl_categories.cate_id inner join tbl_user on tbl_publicthems.user_id=tbl_user.user_id Where tbl_categories.cate_name='$tema' AND tbl_publicThems.pthe_closed!='1' LIMIT $start, $per_page";
     
     $result_pag_data = mysqli_query($con,$query_pag_data);
     $msg = "";
