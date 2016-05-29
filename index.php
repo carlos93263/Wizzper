@@ -90,32 +90,32 @@
 				Crear Mensaje Nuevo
 			</div>
 			<br/>
-			<form action="" class="ui mensaje form">
+			<form action="procs/nuevoMensaje.proc.php" method="get" class="ui mensaje form">
 				<div class="required field">
 					<label> Asunto del Mensaje</label>
-					<input id="matter" type="text">
+					<input id="matter" name="matter" type="text">
 				</div>
 				<div class="required field">
 					<label> Cuerpo del mensaje</label>
-					<textarea id="body"></textarea>
+					<textarea id="body" name="body"></textarea>
 				</div>
 				<div class="inline required fields">
 					<label for="fruit">A cuantas personas quieres enviar el mensaje:</label>
 					<div class="field">
 						<div class="ui radio checkbox">
-							<input type="radio" name="numPer" checked="" tabindex="0" class="hidden">
+							<input type="radio" name="numPer" checked="" tabindex="0" value="1" class="hidden">
 							<label>1 Personas</label>
 						</div>
 					</div>
 					<div class="field">
 						<div class="ui radio checkbox">
-							<input type="radio" name="numPer" tabindex="0" class="hidden">
+							<input type="radio" name="numPer" tabindex="0" value="5" class="hidden">
 							<label>5 Personas</label>
 						</div>
 					</div>
 					<div class="field">
 						<div class="ui radio checkbox">
-							<input type="radio" name="numPer" tabindex="0" class="hidden">
+							<input type="radio" name="numPer" tabindex="0" value="10" class="hidden">
 							<label>10 Personas</label>
 						</div>
 					</div>
@@ -124,13 +124,13 @@
 					<label for="opTip">Opinión :</label>
 					<div class="field">
 						<div class="ui radio checkbox">
-							<input type="radio" name="opTip" checked="" tabindex="0" class="hidden">
+							<input type="radio" name="opTip" checked="" value="1" tabindex="0" class="hidden">
 							<label>Femenina</label>
 						</div>
 					</div>
 					<div class="field">
 						<div class="ui radio checkbox">
-							<input type="radio" name="opTip" tabindex="0" class="hidden">
+							<input type="radio" name="opTip" tabindex="0" value="0" class="hidden">
 							<label>Masculina</label>
 						</div>
 					</div>
