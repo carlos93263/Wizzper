@@ -31,11 +31,6 @@
         <script src="js/main.js" type="text/javascript"></script>
     </head>
     <body>
-    	<?php
-    	$sqlito="SELECT * FROM tbl_publicthems WHERE tbl_publicthems.pthe_id='$mensaje_tema' AND tbl_publicthems.pthe_closed!='1'";
-		$datitos=mysqli_query($con,$sqlito);
-    	if (mysqli_num_rows($datitos) > 0){
-    	?>
     	<!-- INICIO MENU -->
 		<header>
             <nav class="ui stackable menu">
@@ -76,18 +71,16 @@
 				<div class="one wide column"></div>
                 <div class="ten wide column">
                 <button class="ui orange button" type="button" onclick="location='temasPublicos.php'">Atrás</button>
-                    <!-- AQUI VA EL CONTINGUT QUE TENS DE LES DUES PESTANYES I VENTANA MODAL ETC... -->   
 					<div class="ui top attached tabular menu">
 						<div class="item active">
 							Temas Públicos
 						</div>
 					</div>
 					<div class="ui bottom attached segment">
-
 						<?php
 							$onclick = 'return confirm("Estas seguro de eliminar este hilo?") && confirm("Estas realmente seguro de eliminar el hilo? No habrá vuelta atrás.");';
 							$msg = "";
-							$sql = "SELECT tbl_publicthems.pthe_id, tbl_publicthems.pthe_matter, tbl_publicthems.pthe_textBody, tbl_publicthems.pthe_dateText, tbl_publicthems.pthe_timeText, tbl_user.user_nickname, tbl_user.user_id, tbl_user.user_avatar from tbl_publicthems inner join tbl_user on tbl_publicthems.user_id=tbl_user.user_id WHERE pthe_id='$mensaje_tema'";
+							$sql = "SELECT tbl_publicthems.pthe_id, tbl_publicthems.pthe_matter, tbl_publicthems.pthe_textBody, tbl_publicthems.pthe_closed,tbl_publicthems.pthe_dateText, tbl_publicthems.pthe_timeText, tbl_user.user_nickname, tbl_user.user_id, tbl_user.user_avatar from tbl_publicthems inner join tbl_user on tbl_publicthems.user_id=tbl_user.user_id WHERE pthe_id='$mensaje_tema'";
 							$datos = mysqli_query($con,$sql);
 							while ($send = mysqli_fetch_array($datos)){
 								if ($send['user_id'] == $id_usu){
@@ -111,7 +104,7 @@
 												</div>
 											</div>
 										</div>";
-								}else{
+								} else {
 									$msg.= "<div class='item'>
 											<div class='ui tiny circular image'>
 												<img src='media/img/".$send['user_avatar']."'>
@@ -131,9 +124,8 @@
 											</div>
 										</div>";
 								}
-								
 							}
-							$sql2 = "SELECT tbl_publicthems.pthe_matter, tbl_commentspublicthems.cpth_id, tbl_commentspublicthems.cpth_textBody, tbl_commentspublicthems.cpth_dateText, tbl_commentspublicthems.cpth_timeText, tbl_commentspublicthems.cpth_like, tbl_commentspublicthems.cpth_visible, tbl_commentspublicthems.user_id, tbl_commentspublicthems.pthe_id, tbl_user.user_nickname, tbl_user.user_avatar from tbl_commentspublicthems inner join tbl_user on tbl_commentspublicthems.user_id = tbl_user.user_id inner join tbl_publicthems on tbl_commentspublicthems.pthe_id=tbl_publicthems.pthe_id WHERE tbl_commentspublicthems.pthe_id='$mensaje_tema'";
+							$sql2 = "SELECT tbl_publicthems.pthe_matter, tbl_publicthems.pthe_closed, tbl_commentspublicthems.cpth_id, tbl_commentspublicthems.cpth_textBody, tbl_commentspublicthems.cpth_dateText, tbl_commentspublicthems.cpth_timeText, tbl_commentspublicthems.cpth_like, tbl_commentspublicthems.cpth_visible, tbl_commentspublicthems.user_id, tbl_commentspublicthems.pthe_id, tbl_user.user_nickname, tbl_user.user_avatar, tbl_publicthems.pthe_closed from tbl_commentspublicthems inner join tbl_user on tbl_commentspublicthems.user_id = tbl_user.user_id inner join tbl_publicthems on tbl_commentspublicthems.pthe_id=tbl_publicthems.pthe_id WHERE tbl_commentspublicthems.pthe_id='$mensaje_tema'";
 							//echo $sql2;
 							$datos2 = mysqli_query($con,$sql2);
 							if (mysqli_num_rows($datos2) > 0){
@@ -157,26 +149,46 @@
 														<i class='thumbs outline up icon icon'></i>
 													</div>
 													<a class='ui right floated basic orange left pointing label'>
-														69
+														12
 													</a>
 												</div>
 											</div>
 										</div>";
+
 								}
 							}
 						?>
 						<div class="ui divided items">
-							<?php echo $msg ?>
+						<?php 
+							echo $msg;
+						?>
 						</div>
-						<form class="ui form" action="procs/insertarComentario.proc.php" method="POST">
-							<input type="hidden" name="id_tema" value="<?php echo $mensaje_tema ?>">
-							<div class="required field">
-								
-								<label>Escribir una respuesta:</label>
-								<textarea id="cuerpoComentario" name="cuerpoComentario"></textarea>
-							</div>
-							<button class="ui button" type="submit">Responder</button>
-						</form>
+						<?php
+							$sql3 ="SELECT tbl_publicthems.pthe_id, tbl_publicthems.pthe_closed from tbl_publicthems WHERE pthe_id='$mensaje_tema'";
+							$datos3 = mysqli_query($con,$sql3);
+							while($send3 = mysqli_fetch_array($datos3)){ 
+								$closed = $send3['pthe_closed'];
+								if ($closed != 1){
+									echo "<form class='ui form' action='procs/insertarComentario.proc.php' method='GET'>
+										<input type='hidden' name='id_tema' value='". $mensaje_tema ."'>
+										<div class='required field'>
+										<label>Escribir una respuesta:</label>
+										<textarea id='cuerpoComentario' name='cuerpoComentario'></textarea>
+										</div>
+										<button class='ui button' type='submit'>Responder</button>
+									</form>";
+									
+								}else{
+									echo "<form class='ui form' method='GET'>
+										<div class='required field'>
+										<label>No se puede responder a este mensaje ya que el propietari ha decidido cerrarlo.</label>
+										<textarea disabled id='cuerpoComentario' placeholder='El propietario de este hilo ha decidido cerrarlo ya que ha resuelto su problema.' name='cuerpoComentario'></textarea>
+										</div>
+										<button  class='ui disabled button'>Responder</button>
+									</form>";
+								}
+							}
+						?>
 					</div>
                 </div>
                 <div class="four wide column">
@@ -186,10 +198,5 @@
 			</div>
         </div>
 		<!-- FIN CUERPO -->
-		<?php
-		}else{
-			header("Location: temasPublicos.php");	
-		}
-    	?>
     </body>
 </html>
