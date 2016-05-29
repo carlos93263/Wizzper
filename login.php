@@ -29,10 +29,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="column">
+                <div class="six wide column">
                     FILA IZQUIERDA, PARA PONER INFORMACION DE LA PAGINA BONITA.
                 </div>
-                <div class="column">
+                <div class="four wide column">
                     <form class="ui center aligned login orange form" method="POST" action="procs/login.proc.php">
                         <input type="hidden" name="login" value="si">
                         <h2 class="ui orange header">Login</h2>
@@ -55,7 +55,7 @@
 <!--                         <button class="ui orange button" type="button" onclick="location='registro.php'">Registro</button>
  -->                    </form>
                 </div>
-                <div class="column">
+                <div class="six wide column">
                     FILA DERECHA, PARA PONER INFORMACION DE LA PAGINA BONITA.
                 </div>
             </div>
