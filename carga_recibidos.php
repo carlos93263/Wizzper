@@ -10,9 +10,9 @@ include ("validacio.php");
     while ($row = mysqli_fetch_array($result_mess)){
         $htmlmsg=htmlentities($row['mess_textBody']);
         if($row['user_id'] == $_SESSION['wizzperid']){
-			echo "<div class='izquierda'>";
-		} else {
 			echo "<div class='derecha'>";
+		} else {
+			echo "<div class='izquierda'>";
 		}
 				echo  "<div class='item'>
 						<div class='content'>

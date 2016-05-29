@@ -374,6 +374,17 @@ $(document).ready(function(){
 			}	
 		});
 	}
+	function marcarComoLeido(missatge){
+		$.ajax({
+			type: "POST",
+			url: "marcarComoLeido.php",
+			data: "missatge="+missatge,
+			success: function(msg)
+			{
+			}	
+		});
+		
+	}
 	$(document).on("click","a.item", function(){
 		if($("#mMenu1").hasClass("item active")){
 			var page = $(this).attr('p');
@@ -394,12 +405,14 @@ $(document).ready(function(){
 				var missatge = $(this).attr('m');
 				document.getElementById("missatges").value = "";
 				cargarRecibidosMensaje(missatge);
+				marcarComoLeido(missatge);
 			}
 		} else if($("#mMenu2").hasClass("item active")){
 			if($(this).attr('m')){
 				var missatge = $(this).attr('m');
 				document.getElementById("missatges").value = "";
 				cargarEnviadosMensaje(missatge);
+				marcarComoLeido(missatge);
 			}
 		}
 	});
