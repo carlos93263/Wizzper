@@ -147,8 +147,9 @@ USE `bd_whisperinlight`;
 	(4, "Estudios"),
 	(5, "Familia"),
 	(6, "Salud"),
-	(7, "Trabajo"),
-	(8, "Varios");
+	(7, "Sexualidad"),
+	(8, "Trabajo"),
+	(9, "Varios");
 	
 --
 -- Estructura de la taula `tbl_xatText`
@@ -208,7 +209,6 @@ USE `bd_whisperinlight`;
 --
 	CREATE TABLE IF NOT EXISTS `tbl_message` (
 		`mess_id` int(11) NOT NULL,
-		`mess_matter` varchar(50) NULL,
 		`mess_textBody` text NULL,
 		`mess_dateText` date NULL,
 		`mess_timeText` time NULL,
@@ -227,31 +227,32 @@ USE `bd_whisperinlight`;
 			ALTER TABLE `tbl_message`
 			ADD meus_id int(11) NULL;
 	/* Inserts taula message */
-	INSERT INTO `tbl_message` (`mess_id`, `mess_matter`, `mess_textBody`, `mess_dateText`, `mess_timeText`, `user_id`, `meus_id`) VALUES
-	(1, "Amistad1", "cos missatge 1", '2016-04-11', '10:34:09', 5, 1),
-	(2, "Amistad2", "cos missatge 2", '2016-05-06', '10:34:09', 5, 2),
-	(3, "Amistad3", "cos missatge 3", '2016-05-11', '10:34:09', 5, 3),
-	(4, "Amistad4", "cos missatge 4", '2016-05-15', '10:34:09', 5, 4),
-	(5, "Amistad5", "cos missatge 5", '2016-05-18', '10:34:09', 6, 5),
-	(6, "Amistad6", "cos missatge 6", '2016-05-21', '10:34:09', 6, 6),
-	(7, "Amistad7", "cos missatge 7", '2016-06-11', '10:34:09', 6, 7),
-	(8, "Amistad8", "cos missatge 8", '2016-06-15', '10:34:09', 6, 8),
-	(9, "RE:Amistad1", "Resposta 1", '2016-05-06', '10:34:09', 5, 1),
-	(10, "RE:Amistad2", "Resposta 2", '2016-05-11', '10:34:09', 5, 2),
-	(11, "RE:Amistad3", "Resposta 3", '2016-05-15', '10:34:09', 5, 3),
-	(12, "RE:Amistad4", "Resposta 4", '2016-05-18', '10:34:09', 6, 4),
-	(13, "RE:Amistad5", "Resposta 5", '2016-05-21', '10:34:09', 6, 5),
-	(14, "RE:Amistad6", "Resposta 6", '2016-06-11', '10:34:09', 6, 6),
-	(15, "RE:Amistad7", "Resposta 7", '2016-06-15', '10:34:09', 6, 7),
-	(16, "RE:Amistad8", "Resposta 8", '2016-06-16', '10:34:09', 5, 8),
-	(17, "RE:Amistad1", "Resposta 9", '2016-06-17', '10:34:09', 6, 1),
-	(18, "RE:Amistad2", "Resposta 10", '2016-06-18', '10:34:09', 6, 2);
+	INSERT INTO `tbl_message` (`mess_id`, `mess_textBody`, `mess_dateText`, `mess_timeText`, `user_id`, `meus_id`) VALUES
+	(1,  "cos missatge 1", '2016-04-11', '10:34:09', 5, 1),
+	(2, "cos missatge 2", '2016-05-06', '10:34:09', 5, 2),
+	(3, "cos missatge 3", '2016-05-11', '10:34:09', 5, 3),
+	(4, "cos missatge 4", '2016-05-15', '10:34:09', 5, 4),
+	(5, "cos missatge 5", '2016-05-18', '10:34:09', 6, 5),
+	(6, "cos missatge 6", '2016-05-21', '10:34:09', 6, 6),
+	(7, "cos missatge 7", '2016-06-11', '10:34:09', 6, 7),
+	(8, "cos missatge 8", '2016-06-15', '10:34:09', 6, 8),
+	(9, "Resposta 1", '2016-05-06', '10:34:09', 5, 1),
+	(10, "Resposta 2", '2016-05-11', '10:34:09', 5, 2),
+	(11, "Resposta 3", '2016-05-15', '10:34:09', 5, 3),
+	(12, "Resposta 4", '2016-05-18', '10:34:09', 6, 4),
+	(13, "Resposta 5", '2016-05-21', '10:34:09', 6, 5),
+	(14, "Resposta 6", '2016-06-11', '10:34:09', 6, 6),
+	(15, "Resposta 7", '2016-06-15', '10:34:09', 6, 7),
+	(16, "Resposta 8", '2016-06-16', '10:34:09', 5, 8),
+	(17, "Resposta 9", '2016-06-17', '10:34:09', 6, 1),
+	(18, "Resposta 10", '2016-06-18', '10:34:09', 6, 2);
 			
 --
 -- Estructura de la taula `tbl_messUser`
 --
 	CREATE TABLE IF NOT EXISTS `tbl_messUser` (
-		`meus_id` int(11) NOT NULL
+		`meus_id` int(11) NOT NULL,
+		`meus_matter` varchar(50) NULL
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 	/*  Canvi a Primari Key */
 			ALTER TABLE `tbl_messUser`
@@ -265,15 +266,15 @@ USE `bd_whisperinlight`;
 			ALTER TABLE `tbl_messUser`
 			ADD user_id2 int(11) NULL;
 	/* Inserts taula tbl_messUser */
-	INSERT INTO `tbl_messUser` (`meus_id`, `user_id1`, `user_id2`) VALUES
-	(1, 6, 5),
-	(2, 6, 5),
-	(3, 5, 6),
-	(4, 6, 5),
-	(5, 6, 5),
-	(6, 5, 5),
-	(7, 5, 6),
-	(8, 5, 6);
+	INSERT INTO `tbl_messUser` (`meus_id`, `meus_matter`, `user_id1`, `user_id2`) VALUES
+	(1, "Amistad1", 6, 5),
+	(2, "Amistad2", 6, 5),
+	(3, "Amistad3", 5, 6),
+	(4, "Amistad4", 6, 5),
+	(5, "Amistad5", 6, 5),
+	(6, "Amistad6", 5, 5),
+	(7, "Amistad7", 5, 6),
+	(8, "Amistad8", 5, 6);
 	
 	
 --
