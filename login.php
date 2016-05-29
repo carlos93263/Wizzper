@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="column">
                     <div class="ui basic segment">
-                        <img class="ui centered medium image" src="media/logo/loguito.png">
+                        <img class="ui centered big image" src="media/logo/loguito.png">
                     </div>
                 </div>
             </div>
