@@ -72,17 +72,17 @@
 
     // FOR ENABLING THE FIRST BUTTON
     if ($first_btn && $cur_page > 1) {
-        $msg .= "<a p='1' id='item' f=".$tema." class='item'>First</a>";
+        $msg .= "<a p='1' id='item' f=".$tema." class='item'>|<</a>";
     } else if ($first_btn) {
-        $msg .= "<a p='1' id='item' f=".$tema." class='item disabled'>First</a>";
+        $msg .= "<a p='1' id='item' f=".$tema." class='item disabled'>|<</a>";
     }
 
     // FOR ENABLING THE PREVIOUS BUTTON
     if ($previous_btn && $cur_page > 1) {
         $pre = $cur_page - 1;
-        $msg .= "<a p='$pre' id='item' f=".$tema." class='item'><<</a>";
+        $msg .= "<a p='$pre' id='item' f=".$tema." class='item'><</a>";
     } else if ($previous_btn) {
-        $msg .= "<div id='item' f=".$tema."  class='item disabled'><<</div>";
+        $msg .= "<div id='item' f=".$tema."  class='item disabled'><</div>";
     }
     for ($i = $start_loop; $i <= $end_loop; $i++) {
 
@@ -95,16 +95,16 @@
     // TO ENABLE THE NEXT BUTTON
     if ($next_btn && $cur_page < $no_of_paginations) {
         $nex = $cur_page + 1;
-        $msg .= "<a p='$nex' id='item' f=".$tema." class='item'>>></a>";
+        $msg .= "<a p='$nex' id='item' f=".$tema." class='item'>></a>";
     } else if ($next_btn) {
-        $msg .= "<div id='item' f=".$tema." class='item disabled'>>></div>";
+        $msg .= "<div id='item' f=".$tema." class='item disabled'>></div>";
     }
 
     // TO ENABLE THE END BUTTON
     if ($last_btn && $cur_page < $no_of_paginations) {
-        $msg .= "<a p='$no_of_paginations' id='item' f=".$tema." class='item'>Last</a>";
+        $msg .= "<a p='$no_of_paginations' id='item' f=".$tema." class='item'>>|</a>";
     } else if ($last_btn) {
-        $msg .= "<a p='$no_of_paginations' id='item' f=".$tema." class='item disabled'>Last</a>";
+        $msg .= "<a p='$no_of_paginations' id='item' f=".$tema." class='item disabled'>>|</a>";
     }
     $msg = $msg . "</div></div>";  // Content for pagination
 	

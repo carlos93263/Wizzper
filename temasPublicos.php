@@ -28,8 +28,8 @@
                 <a class="item" href="index.php">
                     Home
                 </a>
-                <a class="item" href="rankings.php">
-                    Rankings
+                 <a class="item" href="temasPublicos.php">
+                    Temas Públicos
                 </a>
                 <div class="ui simple dropdown item">
                     Recomendaciones <i class="dropdown orange icon"></i>
@@ -38,16 +38,13 @@
                         <a class="item" href="ayudas_sociales.php">Ayudas Sociales</a>
                     </div>
                 </div>
-                <a class="item" href="temasPublicos.php">
-                    Temas Públicos
-                </a>
+               
                 <div class="ui simple right floated dropdown item" id="user_options">
                     <img class="ui avatar image" src="media/img/users_avatar.png"><?php echo $_COOKIE["wizzper"];?><i class="dropdown orange icon"></i>
                     <div class="menu">
                         <a class="item" href="modificar_perfil.php">Modificar Perfil</a>
                         <a class="item" href="kill.php">Logout</a>
                     </div>
-                    
                 </div>
             </nav>
         </header>
