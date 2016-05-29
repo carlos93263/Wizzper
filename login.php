@@ -29,32 +29,33 @@
                 </div>
             </div>
             <div class="row">
-                <div class="five wide column">
+                <div class="column">
                     FILA IZQUIERDA, PARA PONER INFORMACION DE LA PAGINA BONITA.
                 </div>
-                <div class="six wide column">
+                <div class="column">
                     <form class="ui center aligned login orange form" method="POST" action="procs/login.proc.php">
                         <input type="hidden" name="login" value="si">
                         <h2 class="ui orange header">Login</h2>
-                            <div class="field">
-                                <div class="ui left icon input">
-                                    <input type="text"  placeholder="Email" name="email">
-                                    <i class="mail icon"></i>
-                                </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <input type="text" placeholder="Email" name="email">
+                                <i class="mail icon"></i>
                             </div>
-                            <div class="field">
-                                <div class="ui left icon input">
-                                    <input type="password"  placeholder="Password" name="password">
-                                    <i class="lock icon"></i>
-                                </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <input type="password" placeholder="Password" name="password">
+                                <i class="lock icon"></i>
                             </div>
+                        </div>
                         <div class="ui error message"></div>
                         <button class="ui orange button" type="submit">Login</button>
                         
                         <p>¿No dispones de una cuenta?<a href="registro.php"> Registrate! </a></p>
-                    </form>
+<!--                         <button class="ui orange button" type="button" onclick="location='registro.php'">Registro</button>
+ -->                    </form>
                 </div>
-                <div class="five wide column">
+                <div class="column">
                     FILA DERECHA, PARA PONER INFORMACION DE LA PAGINA BONITA.
                 </div>
             </div>
