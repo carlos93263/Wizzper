@@ -25,7 +25,7 @@ include ("validacio.php");
             $msg .= "<div id=". $row['mess_id'] ." class='item'>
 						<div  m=". $row['meus_id'] ." id=". $row['meus_id'] ." class='content'>
 							<div class='header'>
-								<i class='file text outline icon'></i>
+								<i name=". $row['meus_id'] ." class='file text outline icon'></i>
 								".$htmlmsg."
 							</div>
 							".$row['mess_dateText']." - ".$row['mess_timeText']."
@@ -35,7 +35,7 @@ include ("validacio.php");
             $msg .= "<div id=". $row['mess_id'] ." class='item'>
 						<div  m=". $row['meus_id'] ." id=". $row['meus_id'] ." class='content'>
 							<div class='header'>
-								<i class='mail outline icon'></i>
+								<i name=". $row['meus_id'] ." class='mail outline icon'></i>
 								".$htmlmsg."
 							</div>
 							".$row['mess_dateText']." - ".$row['mess_timeText']."
