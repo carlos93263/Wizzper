@@ -1,7 +1,8 @@
 <?php
 	session_start();
 	//Incluimos la conexion a BBDD
-	include ("../conexion.php");	
+	include ("../conexion.php");
+	
 	$matter = utf8_decode($_REQUEST['matter']);
 	$body = utf8_decode($_REQUEST['body']);
 	if(isset($_REQUEST['pro'])){
