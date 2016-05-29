@@ -26,13 +26,13 @@
             <nav class="ui stackable menu">
                 <span class="item"><img class="ui small image" src="media/logo/loguito.png" onclick="location.href='index.php'"></span>
                 <a class="item" href="index.php">
-                    Home
+                    Bandeja de Entrada
                 </a>
                  <a class="item" href="temasPublicos.php">
                     Temas Públicos
                 </a>
                 <div class="ui simple dropdown item">
-                    Recomendaciones <i class="dropdown orange icon"></i>
+                    Especialistas <i class="dropdown orange icon"></i>
                     <div class="menu">
                         <a class="item" href="psicologos.php">Psicólogos</a>
                         <a class="item" href="ayudas_sociales.php">Ayudas Sociales</a>
@@ -43,7 +43,7 @@
                     <img class="ui avatar image" src="media/img/users_avatar.png"><?php echo $_COOKIE["wizzper"];?><i class="dropdown orange icon"></i>
                     <div class="menu">
                         <a class="item" href="modificar_perfil.php">Modificar Perfil</a>
-                        <a class="item" href="kill.php">Logout</a>
+                        <a class="item" href="kill.php">Cerrar Sesión</a>
                     </div>
                 </div>
             </nav>

@@ -30,12 +30,12 @@
             </div>
             <div class="row">
                 <div class="six wide column">
-                    FILA IZQUIERDA, PARA PONER INFORMACION DE LA PAGINA BONITA.
+                    Todos necesitamos a alguien que nos comprenda, se ponga en nuestro lugar y nos ayude con sus consejos.
                 </div>
                 <div class="four wide column">
                     <form class="ui center aligned login orange form" method="POST" action="procs/login.proc.php">
                         <input type="hidden" name="login" value="si">
-                        <h2 class="ui orange header">Login</h2>
+                        <h2 class="ui orange header">Iniciar Sesión</h2>
                         <div class="field">
                             <div class="ui left icon input">
                                 <input type="text" placeholder="Email" name="email">
@@ -49,14 +49,13 @@
                             </div>
                         </div>
                         <div class="ui error message"></div>
-                        <button class="ui orange button" type="submit">Login</button>
+                        <button class="ui orange button" type="submit">Valídate</button>
                         
                         <p>¿No dispones de una cuenta?<a href="registro.php"> Registrate! </a></p>
-<!--                         <button class="ui orange button" type="button" onclick="location='registro.php'">Registro</button>
- -->                    </form>
+					</form>
                 </div>
                 <div class="six wide column">
-                    FILA DERECHA, PARA PONER INFORMACION DE LA PAGINA BONITA.
+                    Wizzper es el lugar que estás buscando en el que podrás recibir y compartir sabios consejos.
                 </div>
             </div>
             <div class="row">

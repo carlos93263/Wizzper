@@ -149,7 +149,7 @@ USE `bd_whisperinlight`;
 	(6, "Salud"),
 	(7, "Sexualidad"),
 	(8, "Trabajo"),
-	(9, "Varios");
+	(9, "Otros");
 	
 --
 -- Estructura de la taula `tbl_xatText`

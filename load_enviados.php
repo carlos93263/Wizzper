@@ -4,7 +4,7 @@ include ("validacio.php");
     $page = $_POST['page'];
     $cur_page = $page;
     $page -= 1;
-    $per_page = 10;
+    $per_page = 20;
     $previous_btn = true;
     $next_btn = true;
     $first_btn = true;

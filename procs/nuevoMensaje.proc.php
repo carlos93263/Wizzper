@@ -39,6 +39,6 @@
 	}
 	mysqli_close($con);
 	
-	//header("Location: ../index.php");
-	//die();
+	header("Location: ../index.php");
+	die();
 ?>
