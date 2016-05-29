@@ -25,10 +25,11 @@
     <body>
         <div class="ui equal width center aligned padded grid">
             <div class="row">
-                <div class="sixteen wide column">
+			    <div class="six wide column"></div>
+                <div class="four wide column">
                     <form class="ui center aligned registro orange form" method="POST" action="procs/registro.proc.php">
                         <h2 class="ui orange header">Registro</h2>
-                        <div class="ui orange padded center aligned compact segment">
+                        <div class="ui orange padded center aligned segment">
                             <h5>Datos Públicos</h5>
                             <div class="field">
                                 <div class="ui left icon input">
@@ -52,7 +53,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="ui orange padded center aligned compact segment">
+                        <div class="ui orange padded center aligned segment">
                             <h5>Datos Privados</h5>
                             <div class="field">
                                 <div class="ui left icon input">
@@ -95,6 +96,7 @@
                         <button class="ui orange button" type="submit">Registrarse</button>
                     </form>
                 </div>
+				<div class="six wide column"></div>
             </div>
         </div>
     </body>
