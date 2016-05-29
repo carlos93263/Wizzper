@@ -114,8 +114,9 @@
 									<option value="4">Estudios</option>
 									<option value="5">Familia</option>
 									<option value="6">Salud</option>
-									<option value="7">Trabajo</option>
-									<option value="8">Varios</option>
+									<option value="7">Sexualidad</option>
+									<option value="8">Trabajo</option>
+									<option value="9">Varios</option>
 								</select>
 							</div>
 						</div>

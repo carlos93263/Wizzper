@@ -23,7 +23,11 @@
     while ($row = mysqli_fetch_array($result_pag_data,MYSQLI_ASSOC)){
         $htmlmsg=htmlentities($row['pthe_matter']);
         /*onclick='location.href='mostrarTemaPublico.php?pthe_id=".$row['pthe_id']."'*/
-        $msg .= "<tr><td class='collapsing'><i class='user icon'></i>". utf8_encode($row['user_nickname']) ."</td><td><a class='orange item' href='mostrarTemaPublico.php?pthe_id=".$row['pthe_id']."'>". utf8_encode($row['pthe_matter']) ."</a></td><td class='right aligned collapsing'>". $row['pthe_dateText']." - ".$row['pthe_timeText']."</td></tr>";
+        if ($row['pthe_ProfesionalArticle']==0){
+         $msg .= "<tr><td class='collapsing'><i class='user icon'></i>". utf8_encode($row['user_nickname']) ."</td><td><a class='orange item' href='mostrarTemaPublico.php?pthe_id=".$row['pthe_id']."'>". utf8_encode($row['pthe_matter']) ."</a></td><td class='right aligned collapsing'>". $row['pthe_dateText']." - ".$row['pthe_timeText']."</td></tr>";
+        }else{
+            $msg .= "<tr><td class='collapsing'><i class='user icon'></i>". utf8_encode($row['user_nickname']) ."</td><td><i class='student icon'></i>Profesional - <a class='orange item' href='mostrarTemaPublico.php?pthe_id=".$row['pthe_id']."'>". utf8_encode($row['pthe_matter']) ."</a></td><td class='right aligned collapsing'>". $row['pthe_dateText']." - ".$row['pthe_timeText']."</td></tr>";
+        }
     }
 
 	$msg = $msg . "";

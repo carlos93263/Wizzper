@@ -214,6 +214,7 @@ $(document).ready(function(){
 		document.getElementById("Estudios").className="item";
 		document.getElementById("Familia").className="item";
 		document.getElementById("Salud").className="item";
+		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item";
 		var tema = $(this).attr('f');
@@ -226,6 +227,7 @@ $(document).ready(function(){
 		document.getElementById("Estudios").className="item";
 		document.getElementById("Familia").className="item";
 		document.getElementById("Salud").className="item";
+		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item";
 		var tema = $(this).attr('f');
@@ -238,6 +240,7 @@ $(document).ready(function(){
 		document.getElementById("Estudios").className="item";
 		document.getElementById("Familia").className="item";
 		document.getElementById("Salud").className="item";
+		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item";
 		var tema = $(this).attr('f');
@@ -250,6 +253,7 @@ $(document).ready(function(){
 		document.getElementById("Estudios").className="item active";
 		document.getElementById("Familia").className="item";
 		document.getElementById("Salud").className="item";
+		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item";
 		var tema = $(this).attr('f');
@@ -262,6 +266,7 @@ $(document).ready(function(){
 		document.getElementById("Estudios").className="item";
 		document.getElementById("Familia").className="item active";
 		document.getElementById("Salud").className="item";
+		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item";
 		var tema = $(this).attr('f');
@@ -274,6 +279,20 @@ $(document).ready(function(){
 		document.getElementById("Estudios").className="item";
 		document.getElementById("Familia").className="item";
 		document.getElementById("Salud").className="item active";
+		document.getElementById("Sexualidad").className="item";
+		document.getElementById("Trabajo").className="item";
+		document.getElementById("Varios").className="item";
+		var tema = $(this).attr('f');
+		loadforo(1, tema);
+	});
+	$('#Sexualidad').click(function(){
+		document.getElementById("Amistad").className="item";
+		document.getElementById("Amor").className="item";
+		document.getElementById("Dinero").className="item";
+		document.getElementById("Estudios").className="item";
+		document.getElementById("Familia").className="item";
+		document.getElementById("Salud").className="item";
+		document.getElementById("Sexualidad").className="item active";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item";
 		var tema = $(this).attr('f');
@@ -286,6 +305,7 @@ $(document).ready(function(){
 		document.getElementById("Estudios").className="item";
 		document.getElementById("Familia").className="item";
 		document.getElementById("Salud").className="item";
+		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item active";
 		document.getElementById("Varios").className="item";
 		var tema = $(this).attr('f');
@@ -298,6 +318,7 @@ $(document).ready(function(){
 		document.getElementById("Estudios").className="item";
 		document.getElementById("Familia").className="item";
 		document.getElementById("Salud").className="item";
+		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
 		document.getElementById("Varios").className="item active";
 		var tema = $(this).attr('f');
