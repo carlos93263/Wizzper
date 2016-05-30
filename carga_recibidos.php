@@ -32,7 +32,8 @@ include ("validacio.php");
 	}
 	//echo "</div>";
 	echo "</div>";
-		echo "<form action='#' method='get' class='ui tema form'>
+		echo "<form action='procs/insertarMensaje.proc.php' method='get' class='ui tema form'>
+				<input type='hidden' name='id' value='".$missatge."'>
 				<div class='required field'>
 				  <label id='enviarConstestacioMissatge'>Respuesta</label>
 				  <textarea id='body' name='body'></textarea>

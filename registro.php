@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                             <div class="field">
-                                <label>Name</label>
+                                
                                 <div class="two fields">
                                     <div class="field">
                                         <input type="text" name="nombre" placeholder="Nombre">
@@ -86,6 +86,7 @@
                                 </div>
                             </div>
                             <div class="field">
+								<label>Fecha de Nacimiento</label>
                                 <div class="ui left icon input">
                                     <input type="date" name="dateofbirth" max='<?php echo $nuevafecha;?>' value='<?php echo $nuevafecha;?>' required>
                                     <i class="calendar icon"></i>

@@ -404,7 +404,6 @@ $(document).ready(function(){
 			{
 			}	
 		});
-		
 	}
 	$(document).on("click","a.item", function(){
 		if($("#mMenu1").hasClass("item active")){

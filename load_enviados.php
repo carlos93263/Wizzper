@@ -122,9 +122,9 @@ include ("validacio.php");
 
     // TO ENABLE THE END BUTTON
     if ($last_btn && $cur_page < $no_of_paginations) {
-        $msg .= "<a p='$no_of_paginations' id='item' class='item'>>|/a>";
+        $msg .= "<a p='$no_of_paginations' id='item' class='item'>>|/>";
     } else if ($last_btn) {
-        $msg .= "<a p='$no_of_paginations' id='item' class='item disabled'>>|/a>";
+        $msg .= "<a p='$no_of_paginations' id='item' class='item disabled'>>|/>";
     }
     $msg = $msg . "</div></div>";  // Content for pagination
 	

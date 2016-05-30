@@ -51,7 +51,7 @@
                         <div class="ui error message"></div>
                         <button class="ui orange button" type="submit">Valídate</button>
                         
-                        <p>¿No dispones de una cuenta?<a href="registro.php"> Registrate! </a></p>
+                        <p>¿No dispones de una cuenta?<a href="registro.php">¡Registrate! </a></p>
 					</form>
                 </div>
                 <div class="six wide column">

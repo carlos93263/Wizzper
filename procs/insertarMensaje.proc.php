@@ -5,19 +5,18 @@
 	//$_SESSION['wizzperid'];
 	//$_SESSION['wizzpernick'];
 
-	if (!isset($_REQUEST['cuerpoComentario']) || empty($_REQUEST['cuerpoComentario']) || $_REQUEST['cuerpoComentario'] == ""){
+	if (!isset($_REQUEST['body']) || empty($_REQUEST['body']) || $_REQUEST['body'] == ""){
 		echo "<script type=\"text/javascript\">
 				history.go(-1);
 			  </script>";
-
 	}else{
-		$cuerpo = $_REQUEST['cuerpoComentario'];
+		$cuerpo = $_REQUEST['body'];
 		$data = date("Y") . "-" . date("m") . "-" . date("d");
 		$hora = date("H") . ":" . date("i") . ":" . date("s");
 		$user = $_SESSION['wizzperid'];
-		$sql ="INSERT INTO `tbl_commentspublicthems` (`cpth_id`, `cpth_textBody`, `cpth_dateText`, `cpth_timeText`, `cpth_like`, `cpth_visible`, `user_id`, `pthe_id`) VALUES (NULL, '$cuerpo', '$data', '$hora', NULL, '1', '$user', '$id_tema')";
+		$sql ="INSERT ";
 		//echo $sql;
-		$datos = mysqli_query($con, $sql);
-		header("Location: ../mostrarTemaPublico.php?pthe_id=".$_REQUEST['id_tema']);
+		//$datos = mysqli_query($con, $sql);
+		header("Location: ../index.php);
 	}
 ?>

@@ -120,21 +120,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="inline required fields">
-					<label for="opTip">Opinión :</label>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input type="radio" name="opTip" checked="" value="1" tabindex="0" class="hidden">
-							<label>Femenina</label>
-						</div>
-					</div>
-					<div class="field">
-						<div class="ui radio checkbox">
-							<input type="radio" name="opTip" tabindex="0" value="0" class="hidden">
-							<label>Masculina</label>
-						</div>
-					</div>
-				</div>
 				<div class="ui submit button">Enviar</div>
 			</form>
 		</div>
