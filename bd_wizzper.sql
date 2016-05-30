@@ -32,13 +32,13 @@ USE `bd_whisperinlight`;
 			ALTER TABLE `tbl_user`
 			ADD kous_id int(11) NULL;
 	/* Inserts taula categories */
-	INSERT INTO `tbl_user` (`user_id`, `user_nickname`, `user_email`, `user_password`, `user_name`, `user_surname`, `user_avatar`, `user_gender`, `user_response`, `user_notification`, `kous_id`) VALUES
-	(1, "melenas", "sergio.ayala@gmail.com", "81dc9bdb52d04dc20036dbd8313ed055", "Sergio", "Ayala", "users_avatar.png", "M", 1, 1, 3),
-	(2, "gymPower", "aitor.blesa@gmail.com", "81dc9bdb52d04dc20036dbd8313ed055", "Aitor", "Blesa", "users_avatar.png", "M", 1, 1, 3),
-	(3, "xavier", "xavier.granell@gmail.com", "81dc9bdb52d04dc20036dbd8313ed055", "Xavier", "Granell", "users_avatar.png", "M", 1, 1, 3),
-	(4, "alvaro", "alvaro.camacho@gmail.com", "81dc9bdb52d04dc20036dbd8313ed055", "Alvaro", "Camacho", "users_avatar.png", "M", 1, 1, 3),
-	(5, "noescarles", "carlos.sanchez@gmail.com", "81dc9bdb52d04dc20036dbd8313ed055", "Carlos", "Sanchez", "users_avatar.png", "M", 1, 1, 1),
-	(6, "catesmillor", "enric.gorriz@gmail.com", "81dc9bdb52d04dc20036dbd8313ed055", "Enric", "Gorriz", "users_avatar.png", "M", 1, 1, 2);
+	INSERT INTO `tbl_user` (`user_id`, `user_nickname`, `user_email`, `user_password`, `user_name`, `user_surname`, `user_dateofbirth`, `user_avatar`, `user_gender`, `user_response`, `user_notification`, `kous_id`) VALUES
+	(1, "melenas", "sergio.ayala@gmail.com", "81dc9bdb52d04dc20036dbd8313ed055", "Sergio", "Ayala", "1994-03-14","users_avatar.png", "M", 1, 1, 3),
+	(2, "gymPower", "aitor.blesa@gmail.com", "81dc9bdb52d04dc20036dbd8313ed055", "Aitor", "Blesa", "1994-03-14", "users_avatar.png", "M", 1, 1, 3),
+	(3, "xavier", "xavier.granell@gmail.com", "81dc9bdb52d04dc20036dbd8313ed055", "Xavier", "Granell", "1994-03-14", "users_avatar.png", "M", 1, 1, 3),
+	(4, "alvaro", "alvaro.camacho@gmail.com", "81dc9bdb52d04dc20036dbd8313ed055", "Alvaro", "Camacho", "1994-03-14", "users_avatar.png", "M", 1, 1, 3),
+	(5, "noescarles", "carlos.sanchez@gmail.com", "81dc9bdb52d04dc20036dbd8313ed055", "Carlos", "Sanchez","1994-03-14", "users_avatar.png", "M", 1, 1, 1),
+	(6, "catesmillor", "enric.gorriz@gmail.com", "81dc9bdb52d04dc20036dbd8313ed055", "Enric", "Gorriz", "1994-03-14", "users_avatar.png", "M", 1, 1, 2);
 	
 
 --
