@@ -29,9 +29,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="six wide column">
-                    Todos necesitamos a alguien que nos comprenda, se ponga en nuestro lugar y nos ayude con sus consejos.
-                </div>
+               <!--<div class="six wide column">
+               Todos necesitamos a alguien que nos comprenda, se ponga en nuestro lugar y nos ayude con sus consejos.
+                   
+                </div> -->
                 <div class="four wide column">
                     <form class="ui center aligned login orange form" method="POST" action="procs/login.proc.php">
                         <input type="hidden" name="login" value="si">
@@ -54,12 +55,9 @@
                         <p>¿No dispones de una cuenta?<a href="registro.php">¡Registrate! </a></p>
 					</form>
                 </div>
-                <div class="six wide column">
+                <!-- <div class="six wide column">
                     Wizzper es el lugar que estás buscando en el que podrás recibir y compartir sabios consejos.
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">FILA INFERIOR, PARA PONER INFORMACION DE LA PAGINA BONITA.</div>
+                </div> -->
             </div>
         </div>
     </body>
