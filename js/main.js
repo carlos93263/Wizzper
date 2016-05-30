@@ -436,4 +436,7 @@ $(document).ready(function(){
 			}
 		}
 	});
+	$('#enviarConstestacioMissatge').click(function(){
+		alert("hola");
+	});
 });	

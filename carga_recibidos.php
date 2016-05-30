@@ -38,5 +38,5 @@ include ("validacio.php");
 				  <label id='enviarConstestacioMissatge'>Respuesta</label>
 				  <textarea id='body' name='body'></textarea>
 				</div>
-				<div id='enviarConstestacioMissatge' class='ui submit button'>Enviar</div>
+				<div id='enviarConstestacioMissatge' cm='1' class='ui submit button'>Enviar</div>
 			  </form>";
