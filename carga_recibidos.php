@@ -1,3 +1,21 @@
+<script>
+$('#enviarConstestacioMissatge').click(function(){
+	var body = document.getElementById("bodymes").value;
+	var missatge = document.getElementById("mensajeId").value;
+	alert(body);
+	alert(missatge);
+		$.ajax({
+			type: "POST",
+			url: "procs/insertarMensaje.proc.php",
+			data: "missatge="+missatge+"&body="+body,
+			success: function(msg)
+			{
+				alert(msg);
+			}	
+		});
+});
+
+</script>
 <?php
 include ("validacio.php");
 
@@ -16,14 +34,14 @@ include ("validacio.php");
 		}
 				echo  "<div class='item'>
 						<div class='content'>
-							<span class='header'>".$row['meus_matter']."</span>
+							<span class='ui orange label'>".$row['meus_matter']."</span>
 							<div class='description'>
 								<p>".$htmlmsg."</p>
 							</div>
 							<br/>
 							<div class='extra'>
-								<div class='ui orange label'>".$row['mess_dateText']." - ".$row['mess_timeText']."
-								</div>
+								<div >".$row['mess_dateText']." - ".$row['mess_timeText']."
+								</div><br/>
 							</div>
 						</div>
 					</div>
@@ -33,10 +51,10 @@ include ("validacio.php");
 	//echo "</div>";
 	echo "</div>";
 		echo "<form action='procs/insertarMensaje.proc.php' method='get' class='ui tema form'>
-				<input type='hidden' name='id' value='".$missatge."'>
+				<input type='hidden' id='mensajeId' name='id' value='".$missatge."'>
 				<div class='required field'>
-				  <label id='enviarConstestacioMissatge'>Respuesta</label>
-				  <textarea id='body' name='body'></textarea>
+				  <label >Respuesta</label>
+				  <textarea id='bodymes' name='bodymes'></textarea>
 				</div>
 				<div id='enviarConstestacioMissatge' cm='1' class='ui submit button'>Enviar</div>
 			  </form>";
