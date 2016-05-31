@@ -89,14 +89,14 @@
 												<img src='media/img/".$send['user_avatar']."'>
 											</div>
 											<div class='content'>
-												<span class='header'>".$send['pthe_matter']."</span>
-												<a href='procs/eliminarhilo.proc.php?pthe_id=".$mensaje_tema."' class='ui right floated red basic label' onClick='".$onclick."'>Elimnar Hilo</a>
+												<span class='header'>".utf8_encode($send['pthe_matter'])."</span>
+												<a href='procs/eliminarhilo.proc.php?pthe_id=".$mensaje_tema."' class='ui right floated red basic label' onClick='".$onclick."'>Cerrar Hilo</a>
 												<a class='ui right floated orange basic label'>Editar</a>
 												<div class='meta'>
 													<span class='cinema'>". $send['user_nickname']."</span>
 												</div>
 												<div class='description'>
-													<p>".$send['pthe_textBody']."</p>
+													<p>".utf8_encode($send['pthe_textBody'])."</p>
 												</div>
 												<br/>
 												<div class='extra'>
@@ -110,12 +110,12 @@
 												<img src='media/img/".$send['user_avatar']."'>
 											</div>
 											<div class='content'>
-												<span class='header'>".$send['pthe_matter']."</span>
+												<span class='header'>".utf8_encode($send['pthe_matter'])."</span>
 												<div class='meta'>
 													<span class='cinema'>". $send['user_nickname']."</span>
 												</div>
 												<div class='description'>
-													<p>".$send['pthe_textBody']."</p>
+													<p>".utf8_encode($send['pthe_textBody'])."</p>
 												</div>
 												<br/>
 												<div class='extra'>
@@ -135,7 +135,7 @@
 												<img src='media/img/".$send2['user_avatar']."'>
 											</div>
 											<div class='content'>
-												<span class='header'><i class='comments outline icon'></i>RE: ".$send2['pthe_matter']."</span>
+												<span class='header'><i class='comments outline icon'></i>RE: ".utf8_encode($send2['pthe_matter'])."</span>
 												<div class='meta'>
 													<span class='cinema'>". $send2['user_nickname']."</span>
 												</div>
