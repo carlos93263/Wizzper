@@ -2,15 +2,12 @@
 $('#enviarConstestacioMissatge').click(function(){
 	var body = document.getElementById("bodymes").value;
 	var missatge = document.getElementById("mensajeId").value;
-	alert(body);
-	alert(missatge);
 		$.ajax({
 			type: "POST",
 			url: "procs/insertarMensaje.proc.php",
 			data: "missatge="+missatge+"&body="+body,
 			success: function(msg)
 			{
-				alert(msg);
 			}	
 		});
 });
