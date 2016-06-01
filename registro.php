@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="inline center aligned fields">
-                                <label for="gender">Tu sexo:</label>
+                                <label for="gender">Sexo:</label>
                                 <div class="field">
                                   <div class="ui radio checkbox">
                                     <input type="radio" name="gender" value="hombre" checked="" tabindex="0" class="hidden">

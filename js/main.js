@@ -216,7 +216,7 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
-		document.getElementById("Varios").className="item";
+		document.getElementById("Otros").className="item";
 		var tema = $(this).attr('f');
 		loadforo(1, tema);
 	});
@@ -229,7 +229,7 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
-		document.getElementById("Varios").className="item";
+		document.getElementById("Otros").className="item";
 		var tema = $(this).attr('f');
 		loadforo(1, tema);
 	});
@@ -242,7 +242,7 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
-		document.getElementById("Varios").className="item";
+		document.getElementById("Otros").className="item";
 		var tema = $(this).attr('f');
 		loadforo(1, tema);
 	});
@@ -255,7 +255,7 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
-		document.getElementById("Varios").className="item";
+		document.getElementById("Otros").className="item";
 		var tema = $(this).attr('f');
 		loadforo(1, tema);
 	});
@@ -268,7 +268,7 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
-		document.getElementById("Varios").className="item";
+		document.getElementById("Otros").className="item";
 		var tema = $(this).attr('f');
 		loadforo(1, tema);
 	});
@@ -281,7 +281,7 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item active";
 		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
-		document.getElementById("Varios").className="item";
+		document.getElementById("Otros").className="item";
 		var tema = $(this).attr('f');
 		loadforo(1, tema);
 	});
@@ -294,7 +294,7 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Sexualidad").className="item active";
 		document.getElementById("Trabajo").className="item";
-		document.getElementById("Varios").className="item";
+		document.getElementById("Otros").className="item";
 		var tema = $(this).attr('f');
 		loadforo(1, tema);
 	});
@@ -307,11 +307,11 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item active";
-		document.getElementById("Varios").className="item";
+		document.getElementById("Otros").className="item";
 		var tema = $(this).attr('f');
 		loadforo(1, tema);
 	});
-	$('#Varios').click(function(){
+	$('#Otros').click(function(){
 		document.getElementById("Amistad").className="item";
 		document.getElementById("Amor").className="item";
 		document.getElementById("Dinero").className="item";
@@ -320,7 +320,7 @@ $(document).ready(function(){
 		document.getElementById("Salud").className="item";
 		document.getElementById("Sexualidad").className="item";
 		document.getElementById("Trabajo").className="item";
-		document.getElementById("Varios").className="item active";
+		document.getElementById("Otros").className="item active";
 		var tema = $(this).attr('f');
 		loadforo(1, tema);
 	});

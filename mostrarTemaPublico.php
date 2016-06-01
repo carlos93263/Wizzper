@@ -78,7 +78,7 @@
 					</div>
 					<div class="ui bottom attached segment">
 						<?php
-							$onclick = 'return confirm("Estas seguro de eliminar este hilo?") && confirm("Estas realmente seguro de eliminar el hilo? No habrá vuelta atrás.");';
+							$onclick = 'return confirm("Estas seguro de cerrar este hilo?") && confirm("Estas realmente seguro de cerrar el hilo? No habrá vuelta atrás.");';
 							$msg = "";
 							$sql = "SELECT tbl_publicthems.pthe_id, tbl_publicthems.pthe_matter, tbl_publicthems.pthe_textBody, tbl_publicthems.pthe_closed,tbl_publicthems.pthe_dateText, tbl_publicthems.pthe_timeText, tbl_user.user_nickname, tbl_user.user_id, tbl_user.user_avatar from tbl_publicthems inner join tbl_user on tbl_publicthems.user_id=tbl_user.user_id WHERE pthe_id='$mensaje_tema'";
 							$datos = mysqli_query($con,$sql);

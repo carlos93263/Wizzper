@@ -116,7 +116,7 @@
 									<option value="6">Salud</option>
 									<option value="7">Sexualidad</option>
 									<option value="8">Trabajo</option>
-									<option value="9">Varios</option>
+									<option value="9">Otros</option>
 								</select>
 							</div>
 						</div>
